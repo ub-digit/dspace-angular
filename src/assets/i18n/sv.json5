@@ -3615,7 +3615,7 @@
 
   // "home.top-level-communities.head": "Communities in DSpace",
   // TODO Source message changed - Revise the translation
-  "home.top-level-communities.head": "Enheter i DSpace",
+  "home.top-level-communities.head": "Enheter i Gupea",
 
   // "home.top-level-communities.help": "Select a community to browse its collections.",
   "home.top-level-communities.help": "Välj en enhet för att se alla samlingar.",
@@ -5533,7 +5533,7 @@
   "login.form.forgot-password": "Har du glömt lösenordet?",
 
   // "login.form.header": "Please log in to DSpace",
-  "login.form.header": "Logga in i ODR",
+  "login.form.header": "Logga in i Gupea",
 
   // "login.form.new-user": "New user? Click here to register.",
   "login.form.new-user": "Ny användare? Klicka här för att skapa ett användarkonto.",
@@ -5863,7 +5863,7 @@
   "metadata-export-search.submit.error": "Starting the export has failed",
 
   // "mydspace.breadcrumbs": "MyDSpace",
-  "mydspace.breadcrumbs": "Mitt DSpace",
+  "mydspace.breadcrumbs": "Mitt Gupea",
 
   // "mydspace.description": "",
   "mydspace.description": "",
@@ -5947,7 +5947,7 @@
 
   // "mydspace.search-form.placeholder": "Search in MyDSpace...",
   // TODO Source message changed - Revise the translation
-  "mydspace.search-form.placeholder": "Sök i mydspace...",
+  "mydspace.search-form.placeholder": "Sök i Gupea...",
 
   // "mydspace.show.workflow": "Workflow tasks",
   "mydspace.show.workflow": "Arbetsflöde uppgifter",
@@ -5962,7 +5962,7 @@
 
   // "mydspace.status": "My DSpace status:",
   // TODO New key - Add a translation
-  "mydspace.status": "My DSpace status:",
+  "mydspace.status": "Min Gupea-status:",
 
   // "mydspace.status.mydspaceArchived": "Archived",
   "mydspace.status.mydspaceArchived": "I arkivet",
@@ -6014,7 +6014,7 @@
   "notification.suggestion.please": "Please",
 
   // "nav.browse.header": "All of DSpace",
-  "nav.browse.header": "Hela DSpace",
+  "nav.browse.header": "Hela Gupea",
 
   // "nav.community-browse.header": "By Community",
   "nav.community-browse.header": "Efter enhet",
@@ -6043,7 +6043,7 @@
   "nav.main.description": "Main navigation bar",
 
   // "nav.mydspace": "MyDSpace",
-  "nav.mydspace": "Mitt DSpace",
+  "nav.mydspace": "Mitt Gupea",
 
   // "nav.profile": "Profile",
   "nav.profile": "Profil",
@@ -7357,7 +7357,7 @@
 
   // "repository.title": "DSpace Repository",
   // TODO New key - Add a translation
-  "repository.title": "DSpace Repository",
+  "repository.title": "Gupea Repositorium",
 
   // "repository.title.prefix": "DSpace Repository :: ",
   // TODO New key - Add a translation
