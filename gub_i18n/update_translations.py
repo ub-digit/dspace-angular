@@ -74,19 +74,20 @@ def update_target_in_place(source_path, target_path):
 
         # Regex pattern to find "key": "value" or key: 'value'
         pattern = re.compile(
-            rf'([\'"]?){key_pattern}\1\s*:\s*([\'"])((?:\\.|[^\2])*?)\2',
-            flags=re.DOTALL
+            rf'^([ \t]*)([\'"]?){key_pattern}\2\s*:\s*([\'"])((?:\\.|(?!\3).)*)\3',
+            flags=re.MULTILINE
         )
 
         def replacer(match):
-            quote = match.group(2)
-            old_value = unescape_json5_string(match.group(3), quote)
+            key_quote = match.group(2)
+            quote = match.group(3)
+            old_value = unescape_json5_string(match.group(4), quote)
             if old_value != src_value:
-                print(f'Updating key "{key}:"')
+                print(f'Updating key "{key}":')
                 print(f'{old_value} → {src_value}')
                 new_escaped = src_value.replace('\\', '\\\\').replace(quote, f'\\{quote}')
                 new_escaped = new_escaped.replace('\n', '\\n').replace('\r', '\\r')
-                return f'{match.group(1)}{key}{match.group(1)}: {quote}{new_escaped}{quote}'
+                return f'{match.group(1)}{key_quote}{key}{key_quote}: {quote}{new_escaped}{quote}'
             return match.group(0)
 
         text, _ = pattern.subn(replacer, text, count=1)
