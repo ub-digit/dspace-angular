@@ -1755,7 +1755,7 @@
 
   "dso-selector.set-scope.community.head": "Select a search scope",
 
-  "dso-selector.set-scope.community.button": "Search all of DSpace",
+  "dso-selector.set-scope.community.button": "Search all of Gupea",
 
   "dso-selector.set-scope.community.or-divider": "or",
 
@@ -3259,7 +3259,7 @@
 
   "login.form.forgot-password": "Have you forgotten your password?",
 
-  "login.form.header": "Please log in to DSpace",
+  "login.form.header": "Please log in to Gupea",
 
   "login.form.new-user": "New user? Click here to register.",
 
@@ -3277,7 +3277,7 @@
 
   "login.breadcrumbs": "Login",
 
-  "logout.form.header": "Log out from DSpace",
+  "logout.form.header": "Log out from Gupea",
 
   "logout.form.submit": "Log out",
 
@@ -3317,7 +3317,7 @@
 
   "menu.section.browse_community_by_title": "By Title",
 
-  "menu.section.browse_global": "All of DSpace",
+  "menu.section.browse_global": "All of Gupea",
 
   "menu.section.browse_global_by_author": "By Author",
 
@@ -3559,7 +3559,7 @@
 
   "notification.suggestion.please": "Please",
 
-  "nav.browse.header": "All of DSpace",
+  "nav.browse.header": "All of Gupea",
 
   "nav.community-browse.header": "By Community",
 
@@ -3699,7 +3699,7 @@
 
   "quality-assurance.event.reject.description": "This operation can't be undone. Reject this suggestion?",
 
-  "quality-assurance.event.accept.description": "No DSpace project selected. A new project will be created based on the suggestion data.",
+  "quality-assurance.event.accept.description": "No Gupea project selected. A new project will be created based on the suggestion data.",
 
   "quality-assurance.event.action.cancel": "Cancel",
 
@@ -4183,7 +4183,7 @@
 
   "register-page.registration.header": "New user registration",
 
-  "register-page.registration.info": "Register an account to subscribe to collections for email updates, and submit new items to DSpace.",
+  "register-page.registration.info": "Register an account to subscribe to collections for email updates, and submit new items to Gupea.",
 
   "register-page.registration.email": "Email Address *",
 
@@ -4271,9 +4271,9 @@
 
   "repository.image.logo": "Repository logo",
 
-  "repository.title": "DSpace Repository",
+  "repository.title": "Gupea Repository",
 
-  "repository.title.prefix": "DSpace Repository :: ",
+  "repository.title.prefix": "Gupea Repository :: ",
 
   "resource-policies.add.button": "Add",
 
@@ -4695,7 +4695,7 @@
 
   "search.form.search_dspace": "All repository",
 
-  "search.form.scope.all": "All of DSpace",
+  "search.form.scope.all": "All of Gupea",
 
   "search.results.head": "Search Results",
 
@@ -4857,7 +4857,7 @@
 
   "submission.import-external.title.none": "Import metadata from an external source",
 
-  "submission.import-external.page.hint": "Enter a query above to find items from the web to import in to DSpace.",
+  "submission.import-external.page.hint": "Enter a query above to find items from the web to import in to Gupea.",
 
   "submission.import-external.back-to-my-dspace": "Back to MyDSpace",
 
@@ -5693,7 +5693,7 @@
 
   "thumbnail.person.placeholder": "No Profile Picture Available",
 
-  "title": "DSpace",
+  "title": "Gupea",
 
   "vocabulary-treeview.header": "Hierarchical tree view",
 

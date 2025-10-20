@@ -84,6 +84,7 @@ def update_target_in_place(source_path, target_path):
                 print(f'Updating key "{key}:"')
                 print(f'{old_value} → {src_value}')
                 new_escaped = src_value.replace('\\', '\\\\').replace(quote, f'\\{quote}')
+                new_escaped = new_escaped.replace('\n', '\\n').replace('\r', '\\r')
                 return f'{match.group(1)}{key}{match.group(1)}: {quote}{new_escaped}{quote}'
             return match.group(0)
 
