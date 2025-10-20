@@ -396,35 +396,35 @@
 
   // "admin.access-control.bulk-access.breadcrumbs": "Bulk Access Management",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access.breadcrumbs": "Bulk Access Management",
+  "admin.access-control.bulk-access.breadcrumbs": "Åtkomstkontroll (batch)",
 
   // "administrativeBulkAccess.search.results.head": "Search Results",
   // TODO New key - Add a translation
-  "administrativeBulkAccess.search.results.head": "Search Results",
+  "administrativeBulkAccess.search.results.head": "Sökresultat",
 
   // "admin.access-control.bulk-access": "Bulk Access Management",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access": "Bulk Access Management",
+  "admin.access-control.bulk-access": "Åtkomstkontroll (batch)",
 
   // "admin.access-control.bulk-access.title": "Bulk Access Management",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access.title": "Bulk Access Management",
+  "admin.access-control.bulk-access.title": "Åtkomstkontroll (batch)",
 
   // "admin.access-control.bulk-access-browse.header": "Step 1: Select Objects",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access-browse.header": "Step 1: Select Objects",
+  "admin.access-control.bulk-access-browse.header": "Steg 1: Välj objekt",
 
   // "admin.access-control.bulk-access-browse.search.header": "Search",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access-browse.search.header": "Search",
+  "admin.access-control.bulk-access-browse.search.header": "Sök",
 
   // "admin.access-control.bulk-access-browse.selected.header": "Current selection({{number}})",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access-browse.selected.header": "Current selection({{number}})",
+  "admin.access-control.bulk-access-browse.selected.header": "Aktuellt val ({{number}})",
 
   // "admin.access-control.bulk-access-settings.header": "Step 2: Operation to Perform",
   // TODO New key - Add a translation
-  "admin.access-control.bulk-access-settings.header": "Step 2: Operation to Perform",
+  "admin.access-control.bulk-access-settings.header": "Steg 2: Välj metod",
 
   // "admin.access-control.epeople.actions.delete": "Delete EPerson",
   "admin.access-control.epeople.actions.delete": "Radera EPerson",
@@ -446,7 +446,7 @@
 
   // "admin.access-control.epeople.edit.breadcrumbs": "New EPerson",
   // TODO New key - Add a translation
-  "admin.access-control.epeople.edit.breadcrumbs": "New EPerson",
+  "admin.access-control.epeople.edit.breadcrumbs": "Ny EPerson",
 
   // "admin.access-control.epeople.edit.title": "New EPerson",
   // TODO New key - Add a translation
@@ -454,7 +454,7 @@
 
   // "admin.access-control.epeople.add.breadcrumbs": "Add EPerson",
   // TODO New key - Add a translation
-  "admin.access-control.epeople.add.breadcrumbs": "Add EPerson",
+  "admin.access-control.epeople.add.breadcrumbs": "Skapa EPerson",
 
   // "admin.access-control.epeople.add.title": "Add EPerson",
   // TODO New key - Add a translation
@@ -583,7 +583,7 @@
 
   // "admin.access-control.epeople.notification.deleted.failure": "Error occurred when trying to delete EPerson with id \"{{id}}\" with code: \"{{statusCode}}\" and message: \"{{restResponse.errorMessage}}\"",
   // TODO New key - Add a translation
-  "admin.access-control.epeople.notification.deleted.failure": "Error occurred when trying to delete EPerson with id \"{{id}}\" with code: \"{{statusCode}}\" and message: \"{{restResponse.errorMessage}}\"",
+  "admin.access-control.epeople.notification.deleted.failure": "Misslyckades med att radera EPerson: \"{{name}}\"",
 
   // "admin.access-control.epeople.notification.deleted.success": "Successfully deleted EPerson: \"{{name}}\"",
   "admin.access-control.epeople.notification.deleted.success": "EPerson: \"{{name}}\" har raderats",
@@ -846,7 +846,7 @@
 
   // "admin.quality-assurance.breadcrumbs": "Quality Assurance",
   // TODO New key - Add a translation
-  "admin.quality-assurance.breadcrumbs": "Quality Assurance",
+  "admin.quality-assurance.breadcrumbs": "Kvalitetssäkring",
 
   // "admin.notifications.event.breadcrumbs": "Quality Assurance Suggestions",
   // TODO New key - Add a translation
@@ -862,7 +862,7 @@
 
   // "admin.notifications.source.breadcrumbs": "Quality Assurance",
   // TODO New key - Add a translation
-  "admin.notifications.source.breadcrumbs": "Quality Assurance",
+  "admin.notifications.source.breadcrumbs": "Förbättringar av data",
 
   // "admin.access-control.groups.form.tooltip.editGroupPage": "On this page, you can modify the properties and members of a group. In the top section, you can edit the group name and description, unless this is an admin group for a collection or community, in which case the group name and description are auto-generated and cannot be edited. In the following sections, you can edit group membership. See [the wiki](https://wiki.lyrasis.org/display/DSDOC7x/Create+or+manage+a+user+group) for more details.",
   // TODO New key - Add a translation
@@ -1416,7 +1416,7 @@
 
   // "admin.metadata-import.page.validateOnly": "Validate Only",
   // TODO New key - Add a translation
-  "admin.metadata-import.page.validateOnly": "Validate Only",
+  "admin.metadata-import.page.validateOnly": "Validate only",
 
   // "admin.metadata-import.page.validateOnly.hint": "When selected, the uploaded CSV will be validated. You will receive a report of detected changes, but no changes will be saved.",
   // TODO New key - Add a translation
@@ -1713,7 +1713,7 @@
 
   // "browse.back.all-results": "All browse results",
   // TODO New key - Add a translation
-  "browse.back.all-results": "All browse results",
+  "browse.back.all-results": "Tillbaka till listan",
 
   // "browse.comcol.by.author": "By Author",
   "browse.comcol.by.author": "Författare",
@@ -1893,7 +1893,7 @@
 
   // "search.browse.item-back": "Back to Results",
   // TODO New key - Add a translation
-  "search.browse.item-back": "Back to Results",
+  "search.browse.item-back": "Tillbaka till träfflistan",
 
   // "chips.remove": "Remove chip",
   "chips.remove": "Radera chip",
@@ -2225,7 +2225,7 @@
 
   // "collection.page.browse.search.head": "Search",
   // TODO New key - Add a translation
-  "collection.page.browse.search.head": "Search",
+  "collection.page.browse.search.head": "Sök",
 
   // "collection.page.edit": "Edit this collection",
   "collection.page.edit": "Redigera denna samling",
@@ -2245,7 +2245,7 @@
 
   // "collection.search.results.head": "Search Results",
   // TODO New key - Add a translation
-  "collection.search.results.head": "Search Results",
+  "collection.search.results.head": "Sökresultat",
 
   // "collection.select.confirm": "Confirm selected",
   "collection.select.confirm": "Bekräfta val",
@@ -2369,7 +2369,7 @@
 
   // "community.subcoms-cols.breadcrumbs": "Subcommunities and Collections",
   // TODO New key - Add a translation
-  "community.subcoms-cols.breadcrumbs": "Subcommunities and Collections",
+  "community.subcoms-cols.breadcrumbs": "Samlingar",
 
   // "community.create.breadcrumbs": "Create Community",
   // TODO New key - Add a translation
@@ -2476,7 +2476,7 @@
 
   // "community.edit.tabs.access-control.head": "Access Control",
   // TODO New key - Add a translation
-  "community.edit.tabs.access-control.head": "Access Control",
+  "community.edit.tabs.access-control.head": "Åtkomstkontroll",
 
   // "community.edit.tabs.access-control.title": "Community Edit - Access Control",
   // TODO New key - Add a translation
@@ -2630,7 +2630,7 @@
 
   // "community.search.results.head": "Search Results",
   // TODO New key - Add a translation
-  "community.search.results.head": "Search Results",
+  "community.search.results.head": "Sökresultat",
 
   // "community.sub-collection-list.head": "Collections in this Community",
   // TODO Source message changed - Revise the translation
@@ -2680,11 +2680,11 @@
 
   // "cookies.consent.ok": "That's ok",
   // TODO New key - Add a translation
-  "cookies.consent.ok": "That's ok",
+  "cookies.consent.ok": "Ok",
 
   // "cookies.consent.save": "Save",
   // TODO New key - Add a translation
-  "cookies.consent.save": "Save",
+  "cookies.consent.save": "Spara",
 
   // "cookies.consent.content-notice.title": "Cookie Consent",
   // TODO New key - Add a translation
@@ -2783,7 +2783,7 @@
   "curation-task.task.checklinks.label": "Kontrollera länkar i metadata",
 
   // "curation-task.task.noop.label": "NOOP",
-  "curation-task.task.noop.label": "NOOP",
+  "curation-task.task.noop.label": "(välj i listan)",
 
   // "curation-task.task.profileformats.label": "Profile Bitstream Formats",
   // TODO New key - Add a translation
@@ -2800,7 +2800,7 @@
 
   // "curation-task.task.registerdoi.label": "Register DOI",
   // TODO New key - Add a translation
-  "curation-task.task.registerdoi.label": "Register DOI",
+  "curation-task.task.registerdoi.label": "Registrera DOI",
 
   // "curation.form.task-select.label": "Task:",
   "curation.form.task-select.label": "Uppgift:",
@@ -2879,7 +2879,7 @@
 
   // "dso-selector.create.community.or-divider": "or",
   // TODO New key - Add a translation
-  "dso-selector.create.community.or-divider": "or",
+  "dso-selector.create.community.or-divider": "eller",
 
   // "dso-selector.create.community.sub-level": "Create a new community in",
   "dso-selector.create.community.sub-level": "Skapa en ny enhet i",
@@ -2913,7 +2913,7 @@
 
   // "dso-selector.export-batch.dspaceobject.head": "Export Batch (ZIP) from",
   // TODO New key - Add a translation
-  "dso-selector.export-batch.dspaceobject.head": "Export Batch (ZIP) from",
+  "dso-selector.export-batch.dspaceobject.head": "Exportera",
 
   // "dso-selector.import-batch.dspaceobject.head": "Import batch from",
   // TODO New key - Add a translation
@@ -2927,11 +2927,11 @@
 
   // "dso-selector.placeholder.type.community": "community",
   // TODO New key - Add a translation
-  "dso-selector.placeholder.type.community": "community",
+  "dso-selector.placeholder.type.community": "enhet",
 
   // "dso-selector.placeholder.type.collection": "collection",
   // TODO New key - Add a translation
-  "dso-selector.placeholder.type.collection": "collection",
+  "dso-selector.placeholder.type.collection": "samling",
 
   // "dso-selector.placeholder.type.item": "item",
   // TODO New key - Add a translation
@@ -2948,7 +2948,7 @@
 
   // "dso-selector.set-scope.community.or-divider": "or",
   // TODO New key - Add a translation
-  "dso-selector.set-scope.community.or-divider": "or",
+  "dso-selector.set-scope.community.or-divider": "eller bara i",
 
   // "dso-selector.set-scope.community.input-header": "Search for a community or collection",
   "dso-selector.set-scope.community.input-header": "Sök efter en samling eller enhet",
@@ -3211,7 +3211,7 @@
 
   // "feed.description": "Syndication feed",
   // TODO New key - Add a translation
-  "feed.description": "Syndication feed",
+  "feed.description": "RSS",
 
   // "file-download-link.restricted": "Restricted bitstream",
   // TODO New key - Add a translation
@@ -3228,7 +3228,7 @@
   "footer.link.accessibility": "Accessibility settings",
 
   // "footer.link.dspace": "DSpace software",
-  "footer.link.dspace": "DSpace software",
+  "footer.link.dspace": "Gupea software",
 
   // "footer.link.lyrasis": "LYRASIS",
   "footer.link.lyrasis": "LYRASIS",
@@ -3238,11 +3238,11 @@
 
   // "footer.link.privacy-policy": "Privacy policy",
   // TODO New key - Add a translation
-  "footer.link.privacy-policy": "Privacy policy",
+  "footer.link.privacy-policy": "Personuppgifter och cookies",
 
   // "footer.link.end-user-agreement": "End User Agreement",
   // TODO New key - Add a translation
-  "footer.link.end-user-agreement": "End User Agreement",
+  "footer.link.end-user-agreement": "Användaravtal",
 
   // "footer.link.feedback": "Send Feedback",
   // TODO Source message changed - Revise the translation
@@ -3291,7 +3291,7 @@
 
   // "forgot-email.form.error.content": "An error occurred when attempting to reset the password for the account associated with the following email address: {{ email }}",
   // TODO New key - Add a translation
-  "forgot-email.form.error.content": "An error occurred when attempting to reset the password for the account associated with the following email address: {{ email }}",
+  "forgot-email.form.error.content": "Ett fel uppstod när följande e-postadress skulle registreras: {{ email }}",
 
   // "forgot-password.title": "Forgot Password",
   "forgot-password.title": "Glömt lösenord",
@@ -3444,7 +3444,7 @@
 
   // "form.create": "Create",
   // TODO New key - Add a translation
-  "form.create": "Create",
+  "form.create": "Skapa",
 
   // "form.number-picker.decrement": "Decrement {{field}}",
   // TODO New key - Add a translation
@@ -3523,15 +3523,15 @@
 
   // "health.breadcrumbs": "Health",
   // TODO New key - Add a translation
-  "health.breadcrumbs": "Health",
+  "health.breadcrumbs": "System status",
 
   // "health-page.heading": "Health",
   // TODO New key - Add a translation
-  "health-page.heading": "Health",
+  "health-page.heading": "System status",
 
   // "health-page.info-tab": "Info",
   // TODO New key - Add a translation
-  "health-page.info-tab": "Info",
+  "health-page.info-tab": "Information",
 
   // "health-page.status-tab": "Status",
   // TODO New key - Add a translation
@@ -3539,15 +3539,15 @@
 
   // "health-page.error.msg": "The health check service is temporarily unavailable",
   // TODO New key - Add a translation
-  "health-page.error.msg": "The health check service is temporarily unavailable",
+  "health-page.error.msg": "Funktionen är tillfälligt oåtkomlig",
 
   // "health-page.property.status": "Status code",
   // TODO New key - Add a translation
-  "health-page.property.status": "Status code",
+  "health-page.property.status": "Statuskod",
 
   // "health-page.section.db.title": "Database",
   // TODO New key - Add a translation
-  "health-page.section.db.title": "Database",
+  "health-page.section.db.title": "Databas",
 
   // "health-page.section.geoIp.title": "GeoIp",
   // TODO New key - Add a translation
@@ -3555,19 +3555,19 @@
 
   // "health-page.section.solrAuthorityCore.title": "Solr: authority core",
   // TODO New key - Add a translation
-  "health-page.section.solrAuthorityCore.title": "Solr: authority core",
+  "health-page.section.solrAuthorityCore.title": "Sor: authority core",
 
   // "health-page.section.solrOaiCore.title": "Solr: oai core",
   // TODO New key - Add a translation
-  "health-page.section.solrOaiCore.title": "Solr: oai core",
+  "health-page.section.solrOaiCore.title": "Sor: oai core",
 
   // "health-page.section.solrSearchCore.title": "Solr: search core",
   // TODO New key - Add a translation
-  "health-page.section.solrSearchCore.title": "Solr: search core",
+  "health-page.section.solrSearchCore.title": "Sor: search core",
 
   // "health-page.section.solrStatisticsCore.title": "Solr: statistics core",
   // TODO New key - Add a translation
-  "health-page.section.solrStatisticsCore.title": "Solr: statistics core",
+  "health-page.section.solrStatisticsCore.title": "Sor: statistics core",
 
   // "health-page.section-info.app.title": "Application Backend",
   // TODO New key - Add a translation
@@ -3587,19 +3587,19 @@
 
   // "health-page.status.error.info": "Problems detected",
   // TODO New key - Add a translation
-  "health-page.status.error.info": "Problems detected",
+  "health-page.status.error.info": "Problem har upptäckts",
 
   // "health-page.status.warning.info": "Possible issues detected",
   // TODO New key - Add a translation
-  "health-page.status.warning.info": "Possible issues detected",
+  "health-page.status.warning.info": "Möjliga problem har upptäckts",
 
   // "health-page.title": "Health",
   // TODO New key - Add a translation
-  "health-page.title": "Health",
+  "health-page.title": "System status",
 
   // "health-page.section.no-issues": "No issues detected",
   // TODO New key - Add a translation
-  "health-page.section.no-issues": "No issues detected",
+  "health-page.section.no-issues": "Inga problem har upptäckts",
 
   // "home.description": "",
   "home.description": "Till startsidan",
@@ -3797,7 +3797,7 @@
 
   // "quality-assurance.event.table.person-who-requested": "Requested by",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.person-who-requested": "Requested by",
+  "quality-assurance.event.table.person-who-requested": "Föreslaget av",
 
   // "item.edit.authorizations.heading": "With this editor you can view and alter the policies of an item, plus alter policies of individual item components: bundles and bitstreams. Briefly, an item is a container of bundles, and bundles are containers of bitstreams. Containers usually have ADD/REMOVE/READ/WRITE policies, while bitstreams only have READ/WRITE policies.",
   "item.edit.authorizations.heading": "Här kan du se och ändra de villkor som gäller för en post och dess ingående komponenter: buntar (bundles) och filer. En post är en container som innehåller en eller flera buntar (bundles), som i sin tur är en container med en eller flera filer. Buntar har behörigheter för att LÄGGA TILL/RADERA/LÄSA/SKRIVA, medan filer bara har behörigheter för att LÄSA och SKRIVA.",
@@ -3915,7 +3915,7 @@
 
   // "item.edit.bitstreams.info-alert": "Bitstreams can be reordered within their bundles by holding the drag handle and moving the mouse. Alternatively, bitstreams can be moved using the keyboard in the following way: Select the bitstream by pressing enter when the bitstream's drag handle is in focus. Move the bitstream up or down using the arrow keys. Press enter again to confirm the current position of the bitstream.",
   // TODO New key - Add a translation
-  "item.edit.bitstreams.info-alert": "Bitstreams can be reordered within their bundles by holding the drag handle and moving the mouse. Alternatively, bitstreams can be moved using the keyboard in the following way: Select the bitstream by pressing enter when the bitstream's drag handle is in focus. Move the bitstream up or down using the arrow keys. Press enter again to confirm the current position of the bitstream.",
+  "item.edit.bitstreams.info-alert": "Filer kan sorteras om genom att markera och dra dem till en ny plats inom bunten.",
 
   // "item.edit.bitstreams.headers.actions": "Actions",
   "item.edit.bitstreams.headers.actions": "Händelser",
@@ -4175,7 +4175,7 @@
 
   // "item.edit.metadata.edit.buttons.confirm": "Confirm",
   // TODO New key - Add a translation
-  "item.edit.metadata.edit.buttons.confirm": "Confirm",
+  "item.edit.metadata.edit.buttons.confirm": "Bekräfta",
 
   // "item.edit.metadata.edit.buttons.drag": "Drag to reorder",
   // TODO New key - Add a translation
@@ -4443,15 +4443,15 @@
 
   // "item.edit.curate.title": "Curate Item: {{item}}",
   // TODO New key - Add a translation
-  "item.edit.curate.title": "Curate Item: {{item}}",
+  "item.edit.curate.title": "Kurera titel: {{item}}",
 
   // "item.edit.tabs.access-control.head": "Access Control",
   // TODO New key - Add a translation
-  "item.edit.tabs.access-control.head": "Access Control",
+  "item.edit.tabs.access-control.head": "Åtkomst",
 
   // "item.edit.tabs.access-control.title": "Item Edit - Access Control",
   // TODO New key - Add a translation
-  "item.edit.tabs.access-control.title": "Item Edit - Access Control",
+  "item.edit.tabs.access-control.title": "Redigera post - Åtkomst",
 
   // "item.edit.tabs.metadata.head": "Metadata",
   "item.edit.tabs.metadata.head": "Metadata",
@@ -4604,27 +4604,27 @@
 
   // "item.truncatable-part.show-more": "Show more",
   // TODO New key - Add a translation
-  "item.truncatable-part.show-more": "Show more",
+  "item.truncatable-part.show-more": "Visa mer",
 
   // "item.truncatable-part.show-less": "Collapse",
   // TODO New key - Add a translation
-  "item.truncatable-part.show-less": "Collapse",
+  "item.truncatable-part.show-less": "Visa mindre",
 
   // "item.qa-event-notification.check.notification-info": "There are {{num}} pending suggestions related to your account",
   // TODO New key - Add a translation
-  "item.qa-event-notification.check.notification-info": "There are {{num}} pending suggestions related to your account",
+  "item.qa-event-notification.check.notification-info": "Det finns {{num}} förslag på förändring.",
 
   // "item.qa-event-notification-info.check.button": "View",
   // TODO New key - Add a translation
-  "item.qa-event-notification-info.check.button": "View",
+  "item.qa-event-notification-info.check.button": "Visa",
 
   // "mydspace.qa-event-notification.check.notification-info": "There are {{num}} pending suggestions related to your account",
   // TODO New key - Add a translation
-  "mydspace.qa-event-notification.check.notification-info": "There are {{num}} pending suggestions related to your account",
+  "mydspace.qa-event-notification.check.notification-info": "Det finns {{num}} öppna ärenden kopplade till ditt konto",
 
   // "mydspace.qa-event-notification-info.check.button": "View",
   // TODO New key - Add a translation
-  "mydspace.qa-event-notification-info.check.button": "View",
+  "mydspace.qa-event-notification-info.check.button": "Visa",
 
   // "workflow-item.search.result.delete-supervision.modal.header": "Delete Supervision Order",
   // TODO New key - Add a translation
@@ -4724,7 +4724,7 @@
 
   // "item.page.filesection.description": "Description:",
   // TODO New key - Add a translation
-  "item.page.filesection.description": "Description:",
+  "item.page.filesection.description": "Beskrivning:",
 
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Ladda ner",
@@ -4737,7 +4737,7 @@
 
   // "item.page.filesection.size": "Size:",
   // TODO New key - Add a translation
-  "item.page.filesection.size": "Size:",
+  "item.page.filesection.size": "Storlek:",
 
   // "item.page.journal.search.title": "Articles in this journal",
   "item.page.journal.search.title": "Artiklar i denna tidskrift",
@@ -4792,7 +4792,7 @@
 
   // "item.page.bitstreams.primary": "Primary",
   // TODO New key - Add a translation
-  "item.page.bitstreams.primary": "Primary",
+  "item.page.bitstreams.primary": "Primär fil",
 
   // "item.page.filesection.original.bundle": "Original bundle",
   // TODO New key - Add a translation
@@ -4810,7 +4810,7 @@
 
   // "item.page.withdrawn": "Request a withdrawal for this item",
   // TODO New key - Add a translation
-  "item.page.withdrawn": "Request a withdrawal for this item",
+  "item.page.withdrawn": "Begär att denna post ska återkallas",
 
   // "item.page.reinstate": "Request reinstatement",
   // TODO New key - Add a translation
@@ -4836,7 +4836,7 @@
 
   // "item.preview.dc.contributor.author": "Authors:",
   // TODO New key - Add a translation
-  "item.preview.dc.contributor.author": "Authors:",
+  "item.preview.dc.contributor.author": "Författare:",
 
   // "item.preview.dc.date.issued": "Published date:",
   "item.preview.dc.date.issued": "Publicerad:",
@@ -4849,7 +4849,7 @@
 
   // "item.preview.dc.language.iso": "Language:",
   // TODO New key - Add a translation
-  "item.preview.dc.language.iso": "Language:",
+  "item.preview.dc.language.iso": "Språk:",
 
   // "item.preview.dc.subject": "Subjects:",
   "item.preview.dc.subject": "Ämnen:",
@@ -5055,7 +5055,7 @@
 
   // "item.version.history.table.action.hasDraft": "A new version cannot be created because there is an in-progress submission in the version history",
   // TODO New key - Add a translation
-  "item.version.history.table.action.hasDraft": "A new version cannot be created because there is an in-progress submission in the version history",
+  "item.version.history.table.action.hasDraft": "A new version cannot be created because there is an inprogress submission in the version history",
 
   // "item.version.notice": "This is not the latest version of this item. The latest version can be found <a href='{{destination}}'>here</a>.",
   "item.version.notice": "Detta är inte den senaste versionen. Senaste versionen finns <a href='{{destination}}'>här</a>.",
@@ -5065,7 +5065,7 @@
 
   // "item.qa.withdrawn.modal.header": "Request withdrawal",
   // TODO New key - Add a translation
-  "item.qa.withdrawn.modal.header": "Request withdrawal",
+  "item.qa.withdrawn.modal.header": "Begär återkallande",
 
   // "item.qa.reinstate.modal.header": "Request reinstate",
   // TODO New key - Add a translation
@@ -5093,7 +5093,7 @@
 
   // "qa-withdrown.create.modal.button.confirm": "Withdraw",
   // TODO New key - Add a translation
-  "qa-withdrown.create.modal.button.confirm": "Withdraw",
+  "qa-withdrown.create.modal.button.confirm": "Återkalla",
 
   // "qa-reinstate.create.modal.button.confirm": "Reinstate",
   // TODO New key - Add a translation
@@ -5104,14 +5104,14 @@
 
   // "item.qa.withdrawn-reinstate.create.modal.button.cancel": "Cancel",
   // TODO New key - Add a translation
-  "item.qa.withdrawn-reinstate.create.modal.button.cancel": "Cancel",
+  "item.qa.withdrawn-reinstate.create.modal.button.cancel": "Avbryt",
 
   // "item.version.create.modal.button.cancel.tooltip": "Do not create new version",
   "item.version.create.modal.button.cancel.tooltip": "Skapa inte ny version",
 
   // "item.qa.withdrawn-reinstate.create.modal.button.cancel.tooltip": "Do not send request",
   // TODO New key - Add a translation
-  "item.qa.withdrawn-reinstate.create.modal.button.cancel.tooltip": "Do not send request",
+  "item.qa.withdrawn-reinstate.create.modal.button.cancel.tooltip": "Avbryt och skicka inte",
 
   // "item.version.create.modal.form.summary.label": "Summary",
   "item.version.create.modal.form.summary.label": "Sammanfattning",
@@ -5122,7 +5122,7 @@
 
   // "qa-withdrawn.create.modal.form.summary2.label": "Please enter the reason for the withdrawal",
   // TODO New key - Add a translation
-  "qa-withdrawn.create.modal.form.summary2.label": "Please enter the reason for the withdrawal",
+  "qa-withdrawn.create.modal.form.summary2.label": "Ange orsaken till detta",
 
   // "qa-reinstate.create.modal.form.summary.label": "You are requesting to reinstate this item",
   // TODO New key - Add a translation
@@ -5137,7 +5137,7 @@
 
   // "qa-withdrown.modal.form.summary.placeholder": "Enter the reason for the withdrawal",
   // TODO New key - Add a translation
-  "qa-withdrown.modal.form.summary.placeholder": "Enter the reason for the withdrawal",
+  "qa-withdrown.modal.form.summary.placeholder": "Ange orsak...",
 
   // "qa-reinstate.modal.form.summary.placeholder": "Enter the reason for the reinstatement",
   // TODO New key - Add a translation
@@ -5173,7 +5173,7 @@
 
   // "item.version.create.notification.inProgress": "A new version cannot be created because there is an in-progress submission in the version history",
   // TODO New key - Add a translation
-  "item.version.create.notification.inProgress": "A new version cannot be created because there is an in-progress submission in the version history",
+  "item.version.create.notification.inProgress": "A new version cannot be created because there is an inprogress submission in the version history",
 
   // "item.version.delete.modal.header": "Delete version",
   "item.version.delete.modal.header": "Radera version",
@@ -5446,7 +5446,7 @@
 
   // "iiifsearchable.page.description": "Description: ",
   // TODO New key - Add a translation
-  "iiifsearchable.page.description": "Description: ",
+  "iiifsearchable.page.description": "Beskrivning: ",
 
   // "iiifviewer.fullscreen.notice": "Use full screen for better viewing.",
   // TODO New key - Add a translation
@@ -5470,7 +5470,7 @@
 
   // "iiif.page.description": "Description: ",
   // TODO New key - Add a translation
-  "iiif.page.description": "Description: ",
+  "iiif.page.description": "Beskrivning: ",
 
   // "loading.bitstream": "Loading bitstream...",
   "loading.bitstream": "Hämtar fil...",
@@ -5590,7 +5590,7 @@
 
   // "menu.section.access_control_bulk": "Bulk Access Management",
   // TODO New key - Add a translation
-  "menu.section.access_control_bulk": "Bulk Access Management",
+  "menu.section.access_control_bulk": "Åtkomstkontroll (batch)",
 
   // "menu.section.access_control_groups": "Groups",
   "menu.section.access_control_groups": "Grupper",
@@ -5686,7 +5686,7 @@
 
   // "menu.section.export_batch": "Batch Export (ZIP)",
   // TODO New key - Add a translation
-  "menu.section.export_batch": "Batch Export (ZIP)",
+  "menu.section.export_batch": "Export (batch)",
 
   // "menu.section.icon.access_control": "Access Control menu section",
   "menu.section.icon.access_control": "Åtkomstkontroll - meny",
@@ -5715,7 +5715,7 @@
 
   // "menu.section.icon.health": "Health check menu section",
   // TODO New key - Add a translation
-  "menu.section.icon.health": "Health check menu section",
+  "menu.section.icon.health": "System status",
 
   // "menu.section.icon.import": "Import menu section",
   "menu.section.icon.import": "Importera - meny",
@@ -5775,7 +5775,7 @@
 
   // "menu.section.notifications": "Notifications",
   // TODO New key - Add a translation
-  "menu.section.notifications": "Notifications",
+  "menu.section.notifications": "Meddelanden",
 
   // "menu.section.quality-assurance": "Quality Assurance",
   // TODO New key - Add a translation
@@ -5796,7 +5796,7 @@
 
   // "menu.section.health": "Health",
   // TODO New key - Add a translation
-  "menu.section.health": "Health",
+  "menu.section.health": "System status",
 
   // "menu.section.registries": "Registries",
   "menu.section.registries": "Registries",
@@ -6036,7 +6036,7 @@
 
   // "nav.logout": "Log Out",
   // TODO New key - Add a translation
-  "nav.logout": "Log Out",
+  "nav.logout": "User profile menu and Log Out",
 
   // "nav.main.description": "Main navigation bar",
   // TODO New key - Add a translation
@@ -6064,7 +6064,7 @@
 
   // "nav.subscriptions": "Subscriptions",
   // TODO New key - Add a translation
-  "nav.subscriptions": "Subscriptions",
+  "nav.subscriptions": "Prenumerationer",
 
   // "nav.toggle": "Toggle navigation",
   // TODO New key - Add a translation
@@ -6084,11 +6084,11 @@
 
   // "quality-assurance.title": "Quality Assurance",
   // TODO New key - Add a translation
-  "quality-assurance.title": "Quality Assurance",
+  "quality-assurance.title": "Förbättringar av data",
 
   // "quality-assurance.topics.description": "Below you can see all the topics received from the subscriptions to {{source}}.",
   // TODO New key - Add a translation
-  "quality-assurance.topics.description": "Below you can see all the topics received from the subscriptions to {{source}}.",
+  "quality-assurance.topics.description": "Nedan visas inkomna förslag.",
 
   // "quality-assurance.source.description": "Below you can see all the notification's sources.",
   // TODO New key - Add a translation
@@ -6100,7 +6100,7 @@
 
   // "quality-assurance.source": "Current Sources",
   // TODO New key - Add a translation
-  "quality-assurance.source": "Current Sources",
+  "quality-assurance.source": "Källor",
 
   // "quality-assurance.table.topic": "Topic",
   // TODO New key - Add a translation
@@ -6108,15 +6108,15 @@
 
   // "quality-assurance.table.source": "Source",
   // TODO New key - Add a translation
-  "quality-assurance.table.source": "Source",
+  "quality-assurance.table.source": "Källa",
 
   // "quality-assurance.table.last-event": "Last Event",
   // TODO New key - Add a translation
-  "quality-assurance.table.last-event": "Last Event",
+  "quality-assurance.table.last-event": "Senast uppdaterat",
 
   // "quality-assurance.table.actions": "Actions",
   // TODO New key - Add a translation
-  "quality-assurance.table.actions": "Actions",
+  "quality-assurance.table.actions": "Åtgärd",
 
   // "quality-assurance.source-list.button.detail": "Show topics for {{param}}",
   // TODO New key - Add a translation
@@ -6128,7 +6128,7 @@
 
   // "quality-assurance.noTopics": "No topics found.",
   // TODO New key - Add a translation
-  "quality-assurance.noTopics": "No topics found.",
+  "quality-assurance.noTopics": "Inga förslag.",
 
   // "quality-assurance.noSource": "No sources found.",
   // TODO New key - Add a translation
@@ -6136,7 +6136,7 @@
 
   // "notifications.events.title": "Quality Assurance Suggestions",
   // TODO New key - Add a translation
-  "notifications.events.title": "Quality Assurance Suggestions",
+  "notifications.events.title": "Förslag på ändringar",
 
   // "quality-assurance.topic.error.service.retrieve": "An error occurred while loading the Quality Assurance topics",
   // TODO New key - Add a translation
@@ -6152,7 +6152,7 @@
 
   // "quality-assurance.events.topic": "Topic:",
   // TODO New key - Add a translation
-  "quality-assurance.events.topic": "Topic:",
+  "quality-assurance.events.topic": "Ämne:",
 
   // "quality-assurance.noEvents": "No suggestions found.",
   // TODO New key - Add a translation
@@ -6164,11 +6164,11 @@
 
   // "quality-assurance.event.table.publication": "Publication",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.publication": "Publication",
+  "quality-assurance.event.table.publication": "Publikation",
 
   // "quality-assurance.event.table.details": "Details",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.details": "Details",
+  "quality-assurance.event.table.details": "Detaljer",
 
   // "quality-assurance.event.table.project-details": "Project details",
   // TODO New key - Add a translation
@@ -6176,27 +6176,27 @@
 
   // "quality-assurance.event.table.reasons": "Reasons",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.reasons": "Reasons",
+  "quality-assurance.event.table.reasons": "Orsaker",
 
   // "quality-assurance.event.table.actions": "Actions",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.actions": "Actions",
+  "quality-assurance.event.table.actions": "Åtgärd",
 
   // "quality-assurance.event.action.accept": "Accept suggestion",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.accept": "Accept suggestion",
+  "quality-assurance.event.action.accept": "Acceptera förslag",
 
   // "quality-assurance.event.action.ignore": "Ignore suggestion",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.ignore": "Ignore suggestion",
+  "quality-assurance.event.action.ignore": "Ignorera förslag",
 
   // "quality-assurance.event.action.undo": "Delete",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.undo": "Delete",
+  "quality-assurance.event.action.undo": "Radera",
 
   // "quality-assurance.event.action.reject": "Reject suggestion",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.reject": "Reject suggestion",
+  "quality-assurance.event.action.reject": "Avböj förslag",
 
   // "quality-assurance.event.action.import": "Import project and accept suggestion",
   // TODO New key - Add a translation
@@ -6256,11 +6256,11 @@
 
   // "quality-assurance.event.table.less": "Show less",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.less": "Show less",
+  "quality-assurance.event.table.less": "Visa mindre",
 
   // "quality-assurance.event.table.more": "Show more",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.more": "Show more",
+  "quality-assurance.event.table.more": "Visa mer",
 
   // "quality-assurance.event.project.found": "Bound to the local record:",
   // TODO New key - Add a translation
@@ -6272,35 +6272,35 @@
 
   // "quality-assurance.event.sure": "Are you sure?",
   // TODO New key - Add a translation
-  "quality-assurance.event.sure": "Are you sure?",
+  "quality-assurance.event.sure": "Är du säker?",
 
   // "quality-assurance.event.ignore.description": "This operation can't be undone. Ignore this suggestion?",
   // TODO New key - Add a translation
-  "quality-assurance.event.ignore.description": "This operation can't be undone. Ignore this suggestion?",
+  "quality-assurance.event.ignore.description": "Denna åtgärd kan inte ångras. Ignorera detta förslag?",
 
   // "quality-assurance.event.undo.description": "This operation can't be undone!",
   // TODO New key - Add a translation
-  "quality-assurance.event.undo.description": "This operation can't be undone!",
+  "quality-assurance.event.undo.description": "Denna åtgärd kan inte ångras!",
 
   // "quality-assurance.event.reject.description": "This operation can't be undone. Reject this suggestion?",
   // TODO New key - Add a translation
-  "quality-assurance.event.reject.description": "This operation can't be undone. Reject this suggestion?",
+  "quality-assurance.event.reject.description": "Denna åtgärd kan inte ångras. Radera detta förslag?",
 
   // "quality-assurance.event.accept.description": "No DSpace project selected. A new project will be created based on the suggestion data.",
   // TODO New key - Add a translation
-  "quality-assurance.event.accept.description": "No DSpace project selected. A new project will be created based on the suggestion data.",
+  "quality-assurance.event.accept.description": "No Gupea project selected. A new project will be created based on the suggestion data.",
 
   // "quality-assurance.event.action.cancel": "Cancel",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.cancel": "Cancel",
+  "quality-assurance.event.action.cancel": "Avbryt",
 
   // "quality-assurance.event.action.saved": "Your decision has been saved successfully.",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.saved": "Your decision has been saved successfully.",
+  "quality-assurance.event.action.saved": "Ändringarna har sparats.",
 
   // "quality-assurance.event.action.error": "An error has occurred. Your decision has not been saved.",
   // TODO New key - Add a translation
-  "quality-assurance.event.action.error": "An error has occurred. Your decision has not been saved.",
+  "quality-assurance.event.action.error": "Ett fel har uppstått. Ändringarna har inte sparats.",
 
   // "quality-assurance.event.modal.project.title": "Choose a project to bound",
   // TODO New key - Add a translation
@@ -6360,7 +6360,7 @@
 
   // "quality-assurance.event.reason": "Reason",
   // TODO New key - Add a translation
-  "quality-assurance.event.reason": "Reason",
+  "quality-assurance.event.reason": "Orsak",
 
   // "orgunit.listelement.badge": "Organizational Unit",
   // TODO New key - Add a translation
@@ -6869,7 +6869,7 @@
 
   // "profile.security.form.label.current-password": "Current password",
   // TODO New key - Add a translation
-  "profile.security.form.label.current-password": "Current password",
+  "profile.security.form.label.current-password": "Nuvarande lösenord",
 
   // "profile.security.form.notifications.success.content": "Your changes to the password were saved.",
   "profile.security.form.notifications.success.content": "Det nya lösenordet har sparats.",
@@ -7239,7 +7239,7 @@
 
   // "register-page.registration.error.content": "An error occurred when registering the following email address: {{ email }}",
   // TODO New key - Add a translation
-  "register-page.registration.error.content": "An error occurred when registering the following email address: {{ email }}",
+  "register-page.registration.error.content": "Ett fel uppstod när kontot skulle skapas för: {{ email }}",
 
   // "register-page.registration.error.recaptcha": "Error when trying to authenticate with recaptcha",
   // TODO New key - Add a translation
@@ -7361,7 +7361,7 @@
 
   // "repository.title.prefix": "DSpace Repository :: ",
   // TODO New key - Add a translation
-  "repository.title.prefix": "DSpace Repository :: ",
+  "repository.title.prefix": "Gupea :: ",
 
   // "resource-policies.add.button": "Add",
   "resource-policies.add.button": "Lägg till",
@@ -8019,7 +8019,7 @@
 
   // "search.filters.search.submit": "Submit",
   // TODO New key - Add a translation
-  "search.filters.search.submit": "Submit",
+  "search.filters.search.submit": "Välj",
 
   // "search.filters.operator.equals.text": "Equals",
   // TODO New key - Add a translation
@@ -8168,11 +8168,11 @@
 
   // "sorting.dc.date.accessioned.ASC": "Accessioned Date Ascending",
   // TODO New key - Add a translation
-  "sorting.dc.date.accessioned.ASC": "Accessioned Date Ascending",
+  "sorting.dc.date.accessioned.ASC": "Äldsta",
 
   // "sorting.dc.date.accessioned.DESC": "Accessioned Date Descending",
   // TODO New key - Add a translation
-  "sorting.dc.date.accessioned.DESC": "Accessioned Date Descending",
+  "sorting.dc.date.accessioned.DESC": "Senast tillagda",
 
   // "sorting.lastModified.ASC": "Last modified Ascending",
   "sorting.lastModified.ASC": "Senast ändrad (stigande)",
@@ -8276,7 +8276,7 @@
 
   // "submission.general.back.submit": "Back",
   // TODO New key - Add a translation
-  "submission.general.back.submit": "Back",
+  "submission.general.back.submit": "Tillbaka",
 
   // "submission.general.info.saved": "Saved",
   "submission.general.info.saved": "Sparat",
@@ -9034,7 +9034,7 @@
 
   // "submission.sections.general.cannot_deposit": "Deposit cannot be completed due to errors in the form.<br>Please fill out all required fields to complete the deposit.",
   // TODO New key - Add a translation
-  "submission.sections.general.cannot_deposit": "Deposit cannot be completed due to errors in the form.<br>Please fill out all required fields to complete the deposit.",
+  "submission.sections.general.cannot_deposit": "Posten kunde inte sparas och publiceras",
 
   // "submission.sections.general.collection": "Collection",
   "submission.sections.general.collection": "Samling",
@@ -9350,7 +9350,7 @@
 
   // "submission.sections.license.required": "You must accept the license",
   // TODO New key - Add a translation
-  "submission.sections.license.required": "You must accept the license",
+  "submission.sections.license.required": "Du måste acceptera villkoren",
 
   // "submission.sections.license.notgranted": "You must accept the license",
   // TODO New key - Add a translation
@@ -9576,11 +9576,11 @@
 
   // "submission.workspace.generic.view": "View",
   // TODO New key - Add a translation
-  "submission.workspace.generic.view": "View",
+  "submission.workspace.generic.view": "Visa metadata",
 
   // "submission.workspace.generic.view-help": "Select this option to view the item's metadata.",
   // TODO New key - Add a translation
-  "submission.workspace.generic.view-help": "Select this option to view the item's metadata.",
+  "submission.workspace.generic.view-help": "Visa postens metadata.",
 
   // "submitter.empty": "N/A",
   // TODO New key - Add a translation
@@ -9588,43 +9588,43 @@
 
   // "subscriptions.title": "Subscriptions",
   // TODO New key - Add a translation
-  "subscriptions.title": "Subscriptions",
+  "subscriptions.title": "Prenumerationer",
 
   // "subscriptions.item": "Subscriptions for items",
   // TODO New key - Add a translation
-  "subscriptions.item": "Subscriptions for items",
+  "subscriptions.item": "Prenumerationer - poster",
 
   // "subscriptions.collection": "Subscriptions for collections",
   // TODO New key - Add a translation
-  "subscriptions.collection": "Subscriptions for collections",
+  "subscriptions.collection": "Prenumerationer - samlingar",
 
   // "subscriptions.community": "Subscriptions for communities",
   // TODO New key - Add a translation
-  "subscriptions.community": "Subscriptions for communities",
+  "subscriptions.community": "Prenumerationer - enheter",
 
   // "subscriptions.subscription_type": "Subscription type",
   // TODO New key - Add a translation
-  "subscriptions.subscription_type": "Subscription type",
+  "subscriptions.subscription_type": "Prenumerationstyp",
 
   // "subscriptions.frequency": "Subscription frequency",
   // TODO New key - Add a translation
-  "subscriptions.frequency": "Subscription frequency",
+  "subscriptions.frequency": "Frekvens",
 
   // "subscriptions.frequency.D": "Daily",
   // TODO New key - Add a translation
-  "subscriptions.frequency.D": "Daily",
+  "subscriptions.frequency.D": "Dagligen",
 
   // "subscriptions.frequency.M": "Monthly",
   // TODO New key - Add a translation
-  "subscriptions.frequency.M": "Monthly",
+  "subscriptions.frequency.M": "Månatlig",
 
   // "subscriptions.frequency.W": "Weekly",
   // TODO New key - Add a translation
-  "subscriptions.frequency.W": "Weekly",
+  "subscriptions.frequency.W": "Veckovis",
 
   // "subscriptions.tooltip": "Subscribe",
   // TODO New key - Add a translation
-  "subscriptions.tooltip": "Subscribe",
+  "subscriptions.tooltip": "Prenumerera",
 
   // "subscriptions.unsubscribe": "Unsubscribe",
   // TODO New key - Add a translation
@@ -9632,39 +9632,39 @@
 
   // "subscriptions.modal.title": "Subscriptions",
   // TODO New key - Add a translation
-  "subscriptions.modal.title": "Subscriptions",
+  "subscriptions.modal.title": "Prenumerationer",
 
   // "subscriptions.modal.type-frequency": "Type and frequency",
   // TODO New key - Add a translation
-  "subscriptions.modal.type-frequency": "Type and frequency",
+  "subscriptions.modal.type-frequency": "Typ och frekvens",
 
   // "subscriptions.modal.close": "Close",
   // TODO New key - Add a translation
-  "subscriptions.modal.close": "Close",
+  "subscriptions.modal.close": "Stäng",
 
   // "subscriptions.modal.delete-info": "To remove this subscription, please visit the \"Subscriptions\" page under your user profile",
   // TODO New key - Add a translation
-  "subscriptions.modal.delete-info": "To remove this subscription, please visit the \"Subscriptions\" page under your user profile",
+  "subscriptions.modal.delete-info": "Välj \"Prenumerationer\" i din användarprofil för att ändra.",
 
   // "subscriptions.modal.new-subscription-form.type.content": "Content",
   // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.type.content": "Content",
+  "subscriptions.modal.new-subscription-form.type.content": "Innehåll",
 
   // "subscriptions.modal.new-subscription-form.frequency.D": "Daily",
   // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.frequency.D": "Daily",
+  "subscriptions.modal.new-subscription-form.frequency.D": "Dagligen",
 
   // "subscriptions.modal.new-subscription-form.frequency.W": "Weekly",
   // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.frequency.W": "Weekly",
+  "subscriptions.modal.new-subscription-form.frequency.W": "Veckovis",
 
   // "subscriptions.modal.new-subscription-form.frequency.M": "Monthly",
   // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.frequency.M": "Monthly",
+  "subscriptions.modal.new-subscription-form.frequency.M": "Månatlig",
 
   // "subscriptions.modal.new-subscription-form.submit": "Submit",
   // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.submit": "Submit",
+  "subscriptions.modal.new-subscription-form.submit": "Skicka",
 
   // "subscriptions.modal.new-subscription-form.processing": "Processing...",
   // TODO New key - Add a translation
@@ -9672,15 +9672,15 @@
 
   // "subscriptions.modal.create.success": "Subscribed to {{ type }} successfully.",
   // TODO New key - Add a translation
-  "subscriptions.modal.create.success": "Subscribed to {{ type }} successfully.",
+  "subscriptions.modal.create.success": "Preumeration aktiverad",
 
   // "subscriptions.modal.delete.success": "Subscription deleted successfully",
   // TODO New key - Add a translation
-  "subscriptions.modal.delete.success": "Subscription deleted successfully",
+  "subscriptions.modal.delete.success": "Preumeration raderad",
 
   // "subscriptions.modal.update.success": "Subscription to {{ type }} updated successfully",
   // TODO New key - Add a translation
-  "subscriptions.modal.update.success": "Subscription to {{ type }} updated successfully",
+  "subscriptions.modal.update.success": "Preumeration uppdaterad",
 
   // "subscriptions.modal.create.error": "An error occurs during the subscription creation",
   // TODO New key - Add a translation
@@ -9696,27 +9696,27 @@
 
   // "subscriptions.table.dso": "Subject",
   // TODO New key - Add a translation
-  "subscriptions.table.dso": "Subject",
+  "subscriptions.table.dso": "Ämne",
 
   // "subscriptions.table.subscription_type": "Subscription Type",
   // TODO New key - Add a translation
-  "subscriptions.table.subscription_type": "Subscription Type",
+  "subscriptions.table.subscription_type": "Typ",
 
   // "subscriptions.table.subscription_frequency": "Subscription Frequency",
   // TODO New key - Add a translation
-  "subscriptions.table.subscription_frequency": "Subscription Frequency",
+  "subscriptions.table.subscription_frequency": "Frekvens",
 
   // "subscriptions.table.action": "Action",
   // TODO New key - Add a translation
-  "subscriptions.table.action": "Action",
+  "subscriptions.table.action": "Åtgärd",
 
   // "subscriptions.table.edit": "Edit",
   // TODO New key - Add a translation
-  "subscriptions.table.edit": "Edit",
+  "subscriptions.table.edit": "Ändra",
 
   // "subscriptions.table.delete": "Delete",
   // TODO New key - Add a translation
-  "subscriptions.table.delete": "Delete",
+  "subscriptions.table.delete": "Radera",
 
   // "subscriptions.table.not-available": "Not available",
   // TODO New key - Add a translation
@@ -9728,7 +9728,7 @@
 
   // "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
   // TODO New key - Add a translation
-  "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
+  "subscriptions.table.empty.message": "Du har inga aktiva prenumerationer.",
 
   // "thumbnail.default.alt": "Thumbnail Image",
   "thumbnail.default.alt": "Bild (thumbnail)",
@@ -9755,7 +9755,7 @@
   "thumbnail.person.placeholder": "Profilbild saknas",
 
   // "title": "DSpace",
-  "title": "DSpace",
+  "title": "Gupea",
 
   // "vocabulary-treeview.header": "Hierarchical tree view",
   "vocabulary-treeview.header": "Hierarkisk trädvy",
@@ -9830,7 +9830,7 @@
 
   // "supervision.search.results.head": "Workflow and Workspace tasks",
   // TODO New key - Add a translation
-  "supervision.search.results.head": "Workflow and Workspace tasks",
+  "supervision.search.results.head": "Arbetsflöden och workspace tasks",
 
   // "workflow-item.edit.breadcrumbs": "Edit workflowitem",
   "workflow-item.edit.breadcrumbs": "Redigera post i arbetsflöde",
@@ -10508,7 +10508,7 @@
 
   // "home.recent-submissions.head": "Recent Submissions",
   // TODO New key - Add a translation
-  "home.recent-submissions.head": "Recent Submissions",
+  "home.recent-submissions.head": "Senast inlagda",
 
   // "listable-notification-object.default-message": "This object couldn't be retrieved",
   // TODO New key - Add a translation
@@ -10616,7 +10616,7 @@
 
   // "item-access-control-title": "This form allows you to perform changes to the access conditions of the item's metadata or its bitstreams.",
   // TODO New key - Add a translation
-  "item-access-control-title": "This form allows you to perform changes to the access conditions of the item's metadata or its bitstreams.",
+  "item-access-control-title": "Hantera och kontrollera åtkomsten till denna post.",
 
   // "collection-access-control-title": "This form allows you to perform changes to the access conditions of all the items owned by this collection. Changes may be performed to either all Item metadata or all content (bitstreams).",
   // TODO New key - Add a translation
@@ -10628,27 +10628,27 @@
 
   // "access-control-item-header-toggle": "Item's Metadata",
   // TODO New key - Add a translation
-  "access-control-item-header-toggle": "Item's Metadata",
+  "access-control-item-header-toggle": "Metadata",
 
   // "access-control-item-toggle.enable": "Enable option to perform changes on the item's metadata",
   // TODO New key - Add a translation
-  "access-control-item-toggle.enable": "Enable option to perform changes on the item's metadata",
+  "access-control-item-toggle.enable": "Applicera ändringar på postens metadata",
 
   // "access-control-item-toggle.disable": "Disable option to perform changes on the item's metadata",
   // TODO New key - Add a translation
-  "access-control-item-toggle.disable": "Disable option to perform changes on the item's metadata",
+  "access-control-item-toggle.disable": "Disable",
 
   // "access-control-bitstream-header-toggle": "Bitstreams",
   // TODO New key - Add a translation
-  "access-control-bitstream-header-toggle": "Bitstreams",
+  "access-control-bitstream-header-toggle": "Bitstreams (filer)",
 
   // "access-control-bitstream-toggle.enable": "Enable option to perform changes on the bitstreams",
   // TODO New key - Add a translation
-  "access-control-bitstream-toggle.enable": "Enable option to perform changes on the bitstreams",
+  "access-control-bitstream-toggle.enable": "Applicera ändringar på postens filer",
 
   // "access-control-bitstream-toggle.disable": "Disable option to perform changes on the bitstreams",
   // TODO New key - Add a translation
-  "access-control-bitstream-toggle.disable": "Disable option to perform changes on the bitstreams",
+  "access-control-bitstream-toggle.disable": "Disable",
 
   // "access-control-mode": "Mode",
   // TODO New key - Add a translation
@@ -10656,7 +10656,7 @@
 
   // "access-control-access-conditions": "Access conditions",
   // TODO New key - Add a translation
-  "access-control-access-conditions": "Access conditions",
+  "access-control-access-conditions": "Villkor",
 
   // "access-control-no-access-conditions-warning-message": "Currently, no access conditions are specified below. If executed, this will replace the current access conditions with the default access conditions inherited from the owning collection.",
   // TODO New key - Add a translation
@@ -10664,79 +10664,79 @@
 
   // "access-control-replace-all": "Replace access conditions",
   // TODO New key - Add a translation
-  "access-control-replace-all": "Replace access conditions",
+  "access-control-replace-all": "Ersätt villkor",
 
   // "access-control-add-to-existing": "Add to existing ones",
   // TODO New key - Add a translation
-  "access-control-add-to-existing": "Add to existing ones",
+  "access-control-add-to-existing": "Lägg till",
 
   // "access-control-limit-to-specific": "Limit the changes to specific bitstreams",
   // TODO New key - Add a translation
-  "access-control-limit-to-specific": "Limit the changes to specific bitstreams",
+  "access-control-limit-to-specific": "Avgränsa till specifika bitstreams",
 
   // "access-control-process-all-bitstreams": "Update all the bitstreams in the item",
   // TODO New key - Add a translation
-  "access-control-process-all-bitstreams": "Update all the bitstreams in the item",
+  "access-control-process-all-bitstreams": "Updatera alla bitstreams i posten",
 
   // "access-control-bitstreams-selected": "bitstreams selected",
   // TODO New key - Add a translation
-  "access-control-bitstreams-selected": "bitstreams selected",
+  "access-control-bitstreams-selected": "valda bitstreams",
 
   // "access-control-bitstreams-select": "Select bitstreams",
   // TODO New key - Add a translation
-  "access-control-bitstreams-select": "Select bitstreams",
+  "access-control-bitstreams-select": "Välj bitstreams",
 
   // "access-control-cancel": "Cancel",
   // TODO New key - Add a translation
-  "access-control-cancel": "Cancel",
+  "access-control-cancel": "Avbryt",
 
   // "access-control-execute": "Execute",
   // TODO New key - Add a translation
-  "access-control-execute": "Execute",
+  "access-control-execute": "Utför",
 
   // "access-control-add-more": "Add more",
   // TODO New key - Add a translation
-  "access-control-add-more": "Add more",
+  "access-control-add-more": "Lägg till fler",
 
   // "access-control-remove": "Remove access condition",
   // TODO New key - Add a translation
-  "access-control-remove": "Remove access condition",
+  "access-control-remove": "Ta bort villkor",
 
   // "access-control-select-bitstreams-modal.title": "Select bitstreams",
   // TODO New key - Add a translation
-  "access-control-select-bitstreams-modal.title": "Select bitstreams",
+  "access-control-select-bitstreams-modal.title": "Välj bitstreams",
 
   // "access-control-select-bitstreams-modal.no-items": "No items to show.",
   // TODO New key - Add a translation
-  "access-control-select-bitstreams-modal.no-items": "No items to show.",
+  "access-control-select-bitstreams-modal.no-items": "Inga poster.",
 
   // "access-control-select-bitstreams-modal.close": "Close",
   // TODO New key - Add a translation
-  "access-control-select-bitstreams-modal.close": "Close",
+  "access-control-select-bitstreams-modal.close": "Stäng",
 
   // "access-control-option-label": "Access condition type",
   // TODO New key - Add a translation
-  "access-control-option-label": "Access condition type",
+  "access-control-option-label": "Access condition typ",
 
   // "access-control-option-note": "Choose an access condition to apply to selected objects.",
   // TODO New key - Add a translation
-  "access-control-option-note": "Choose an access condition to apply to selected objects.",
+  "access-control-option-note": "Välj villkor.",
 
   // "access-control-option-start-date": "Grant access from",
   // TODO New key - Add a translation
-  "access-control-option-start-date": "Grant access from",
+  "access-control-option-start-date": "Tilldela åtkomst från",
 
   // "access-control-option-start-date-note": "Select the date from which the related access condition is applied",
   // TODO New key - Add a translation
-  "access-control-option-start-date-note": "Select the date from which the related access condition is applied",
+  "access-control-option-start-date-note": "Välj datum",
 
   // "access-control-option-end-date": "Grant access until",
   // TODO New key - Add a translation
-  "access-control-option-end-date": "Grant access until",
+  "access-control-option-end-date": "Tilldela åtkomst till",
 
   // "access-control-option-end-date-note": "Select the date until which the related access condition is applied",
   // TODO New key - Add a translation
-  "access-control-option-end-date-note": "Select the date until which the related access condition is applied",
+  "access-control-option-end-date-note": "Välj datum",
 
   // "vocabulary-treeview.search.form.add": "Add",
   // TODO New key - Add a translation
@@ -11225,10 +11225,10 @@
 
   // "quality-assurance.topics.description-with-target": "Below you can see all the topics received from the subscriptions to {{source}} in regards to the",
   // TODO New key - Add a translation
-  "quality-assurance.topics.description-with-target": "Below you can see all the topics received from the subscriptions to {{source}} in regards to the",
+  "quality-assurance.topics.description-with-target": "Nedan visas samtliga meddelanen för {{source}} gällande",
   // "quality-assurance.events.description": "Below the list of all the suggestions for the selected topic <b>{{topic}}</b>, related to <b>{{source}}</b>.",
   // TODO New key - Add a translation
-  "quality-assurance.events.description": "Below the list of all the suggestions for the selected topic <b>{{topic}}</b>, related to <b>{{source}}</b>.",
+  "quality-assurance.events.description": "Nedan visas alla uppdateringar för <b>{{topic}}</b>, gällande <b>{{source}}</b>.",
 
   // "quality-assurance.events.description-with-topic-and-target": "Below the list of all the suggestions for the selected topic <b>{{topic}}</b>, related to <b>{{source}}</b> and ",
   // TODO New key - Add a translation
@@ -11236,7 +11236,7 @@
 
   // "quality-assurance.event.table.event.message.serviceUrl": "Actor:",
   // TODO New key - Add a translation
-  "quality-assurance.event.table.event.message.serviceUrl": "Actor:",
+  "quality-assurance.event.table.event.message.serviceUrl": "Service URL:",
 
   // "quality-assurance.event.table.event.message.link": "Link:",
   // TODO New key - Add a translation
@@ -12152,7 +12152,7 @@
 
   // "browse.search-form.placeholder": "Search the repository",
   // TODO New key - Add a translation
-  "browse.search-form.placeholder": "Search the repository",
+  "browse.search-form.placeholder": "Ange sökord...",
 
   // "file-download-link.download": "Download ",
   // TODO New key - Add a translation
