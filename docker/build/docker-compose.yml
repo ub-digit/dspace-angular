@@ -1,0 +1,11 @@
+services:
+  gupea-espikning-dist:
+    image: docker.ub.gu.se/dspace-angular:dspace-8_x-${GUB_ANGULAR_VERSION}-dist
+    build:
+      context: ../..
+      dockerfile: Dockerfile.dist
+  gupea-espikning:
+    image: docker.ub.gu.se/dspace-angular:dspace-8_x-${GUB_ANGULAR_VERSION}
+    build:
+      context: ../..
+      dockerfile: Dockerfile
