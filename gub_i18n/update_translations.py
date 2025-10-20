@@ -68,9 +68,14 @@ def update_target_in_place(source_path, target_path):
             print(f'Skipping key "{key}" because it contains a skip word')
             continue
 
-
         # Escape key for regex
         key_pattern = re.escape(key)
+
+        # Regex pattern to find original translation for key
+        org_translation_comment_pattern = re.compile(
+            rf'^[ \t]*//\s*([\'"]?){key_pattern}\1\s*:\s*([\'"])((?:\\.|(?!\2).)*)\2',
+            flags=re.MULTILINE
+        )
 
         # Regex pattern to find "key": "value" or key: 'value'
         pattern = re.compile(
@@ -79,15 +84,23 @@ def update_target_in_place(source_path, target_path):
         )
 
         def replacer(match):
-            key_quote = match.group(2)
-            quote = match.group(3)
-            old_value = unescape_json5_string(match.group(4), quote)
-            if old_value != src_value:
-                print(f'Updating key "{key}":')
-                print(f'{old_value} → {src_value}')
-                new_escaped = src_value.replace('\\', '\\\\').replace(quote, f'\\{quote}')
-                new_escaped = new_escaped.replace('\n', '\\n').replace('\r', '\\r')
-                return f'{match.group(1)}{key_quote}{key}{key_quote}: {quote}{new_escaped}{quote}'
+            comment_match = org_translation_comment_pattern.search(text)
+            if comment_match:
+                orig_value = unescape_json5_string(comment_match.group(3), comment_match.group(2))
+                quote = match.group(3)
+                target_value = unescape_json5_string(match.group(4), quote)
+                if target_value != src_value:
+                    if target_value == orig_value:
+                        key_quote = match.group(2)
+                        print(f'Updating key "{key}"')
+                        print(f'{target_value} → {src_value}')
+                        new_escaped = src_value.replace('\\', '\\\\').replace(quote, f'\\{quote}')
+                        new_escaped = new_escaped.replace('\n', '\\n').replace('\r', '\\r')
+                        return f'{match.group(1)}{key_quote}{key}{key_quote}: {quote}{new_escaped}{quote}'
+                    else:
+                        print(f'There already exists a translation for {key}, skipping')
+            else:
+                print(f'No original translation found for "{key}", skipping')
             return match.group(0)
 
         text, _ = pattern.subn(replacer, text, count=1)
