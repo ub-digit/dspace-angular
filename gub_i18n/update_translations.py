@@ -52,12 +52,15 @@ def apply_replacements(s, replacements):
 def update_target_in_place(source_path, target_path):
     source = load_json5(source_path)
     text = Path(target_path).read_text(encoding='utf-8')
-    skip_words = load_skip_words('./skip_words')
     replacements = load_replacements('./replacements')
+    skip_words = load_skip_words('./skip_words')
 
     for key, src_value in source.items():
         if not isinstance(src_value, str):
             continue  # only update string translations
+
+        # Apply replacements to the source value
+        src_value = apply_replacements(src_value, replacements)
 
         # Check skip words in the source value
         src_lower = src_value.lower()
@@ -65,8 +68,6 @@ def update_target_in_place(source_path, target_path):
             print(f'Skipping key "{key}" because it contains a skip word')
             continue
 
-        # Apply replacements to the source value
-        src_value = apply_replacements(src_value, replacements)
 
         # Escape key for regex
         key_pattern = re.escape(key)
