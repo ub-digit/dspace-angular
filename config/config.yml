@@ -3,3 +3,33 @@ rest:
   host: sandbox.dspace.org
   port: 443
   nameSpace: /server
+
+themes:
+  - name: gupea
+    headTags:
+    - tagName: link
+      attributes:
+        rel: icon
+        href: assets/gupea/images/favicons/favicon.ico
+        sizes: any
+    - tagName: link
+      attributes:
+        rel: icon
+        href: assets/gupea/images/favicons/favicon.svg
+        type: image/svg+xml
+    - tagName: link
+      attributes:
+        rel: apple-touch-icon
+        href: assets/gupea/images/favicons/apple-touch-icon.png
+    - tagName: link
+      attributes:
+        rel: manifest
+        href: assets/gupea/images/favicons/manifest.webmanifest
+
+languages:
+  - code: en
+    label: English
+    active: true
+  - code: sv
+    label: Svenska
+    active: true
