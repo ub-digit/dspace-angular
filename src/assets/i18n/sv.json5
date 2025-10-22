@@ -2638,7 +2638,7 @@
 
   // "community.sub-community-list.head": "Communities in this Community",
   // TODO Source message changed - Revise the translation
-  "community.sub-community-list.head": "Enheter under denna enhet",
+  "community.sub-community-list.head": "Enheter",
 
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Acceptera alla",
@@ -3228,7 +3228,7 @@
   "footer.link.accessibility": "Accessibility settings",
 
   // "footer.link.dspace": "DSpace software",
-  "footer.link.dspace": "Gupea software",
+  "footer.link.dspace": "DSpace software",
 
   // "footer.link.lyrasis": "LYRASIS",
   "footer.link.lyrasis": "LYRASIS",
