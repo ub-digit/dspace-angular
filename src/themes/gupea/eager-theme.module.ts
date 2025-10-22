@@ -5,6 +5,7 @@ import { RootModule } from '../../app/root.module';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
+import { TopLevelCommunityListComponent } from './app/home-page/top-level-community-list/top-level-community-list.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
 
 /**
@@ -16,6 +17,7 @@ const ENTRY_COMPONENTS = [];
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
   HomeNewsComponent,
+  TopLevelCommunityListComponent,
   HeaderComponent,
   HeaderNavbarWrapperComponent,
   NavbarComponent,
