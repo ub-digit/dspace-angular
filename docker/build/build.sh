@@ -1,2 +1,3 @@
 #!/bin/bash
-docker compose build $@
+source ./build_dev.sh
+source ./build_prod.sh

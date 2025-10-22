@@ -26,3 +26,9 @@ npm-debug.log.*
 # Webpack files
 webpack.records.json
 package-lock.json
+
+# Angular build cache
+.angular
+
+# GUB folders
+gup_i18n

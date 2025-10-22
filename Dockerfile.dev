@@ -1,0 +1,45 @@
+FROM node:18 AS deps
+
+# Install build tools (needed for some node modules)
+RUN apt-get update && apt-get install -y \
+    python3 make g++ \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy dependency manifests and install first (for better caching)
+COPY package.json yarn.lock ./
+
+# We run yarn install with an increased network timeout (5min) to avoid "ESOCKETTIMEDOUT" errors from hub.docker.com
+# See, for example https://github.com/yarnpkg/yarn/issues/5540
+RUN yarn install --frozen-lockfile  --network-timeout 300000
+
+FROM node:18 AS dev
+
+# Install build tools (needed for some node modules)
+RUN apt-get update && apt-get install -y \
+    python3 make g++ \
+ && rm -rf /var/lib/apt/lists/*
+
+# Create cache directory
+RUN mkdir -p /cache
+
+WORKDIR /app
+
+# Copy pre-installed node_modules from build stage into cache
+COPY --from=deps /app/node_modules /cache/node_modules
+
+# Copy entrypoint script
+COPY docker-entrypoint.dev.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+EXPOSE 4000
+
+# When running in dev mode, 4GB of memory is required to build & launch the app.
+# This default setting can be overridden as needed in your shell, via an env file or in docker-compose.
+# See Docker environment var precedence: https://docs.docker.com/compose/environment-variables/envvars-precedence/
+ENV NODE_OPTIONS="--max_old_space_size=4096"
+
+ENV NODE_ENV=development
+
+CMD ["yarn", "start:dev"]
