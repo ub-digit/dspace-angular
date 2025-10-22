@@ -26,6 +26,19 @@ themes:
         rel: manifest
         href: assets/gupea/images/favicons/manifest.webmanifest
 
+homePage:
+  recentSubmissions:
+    # The number of item showing in recent submission components
+    pageSize: 5
+    # Sort record of recent submission
+    sortField: 'dc.date.accessioned'
+  topLevelCommunityList:
+    # No. of communities to list per page on the home page
+    # This will always round to the nearest number from the list of page sizes. e.g. if you set it to 7 it'll use 10
+    pageSize: 20
+  # Enable or disable the Discover filters on the homepage
+  showDiscoverFilters: false
+
 languages:
   - code: en
     label: English
