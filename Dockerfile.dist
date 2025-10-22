@@ -12,7 +12,7 @@ RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --production --frozen-lockfile --network-timeout 300000
+RUN yarn install --frozen-lockfile --network-timeout 300000
 
 ADD . /app/
 RUN yarn build:prod
