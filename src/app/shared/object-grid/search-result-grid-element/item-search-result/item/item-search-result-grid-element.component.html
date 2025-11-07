@@ -2,19 +2,6 @@
     <div class="position-absolute ml-1">
         <ng-content></ng-content>
     </div>
-    <a *ngIf="linkType !== linkTypes.None" [target]="(linkType === linkTypes.ExternalLink) ? '_blank' : '_self'" [attr.rel]="(linkType === linkTypes.ExternalLink) ? 'noopener noreferrer' : null" [routerLink]="[itemPageRoute]"
-        class="card-img-top full-width" tabindex="-1" [attr.title]="'search.results.view-result' | translate">
-        <div>
-              <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="false">
-              </ds-thumbnail>
-        </div>
-    </a>
-    <span *ngIf="linkType === linkTypes.None" class="card-img-top full-width">
-        <div>
-              <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="false">
-              </ds-thumbnail>
-        </div>
-    </span>
     <div class="card-body">
         <ds-badges *ngIf="showLabel" [object]="dso" [context]="context" [showAccessStatus]="true"></ds-badges>
         <ds-truncatable [id]="dso.id">
