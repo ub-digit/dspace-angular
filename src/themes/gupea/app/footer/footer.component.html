@@ -1,0 +1,40 @@
+<footer class="text-lg-start">
+  <!-- Copyright -->
+  <div class="bottom-footer p-1 d-flex justify-content-center align-items-center text-white">
+    <div class="content-container">
+      <p class="m-0">
+        <a class="text-white"
+           href="http://www.dspace.org/" role="link" tabindex="0">{{ 'footer.link.dspace' | translate}}</a>
+        {{ 'footer.copyright' | translate:{year: dateObj | date:'y'} }}
+        <a class="text-white"
+           href="https://www.lyrasis.org/" role="link" tabindex="0">{{ 'footer.link.lyrasis' | translate}}</a>
+      </p>
+      <ul class="footer-info list-unstyled d-flex justify-content-center mb-0">
+        <li *ngIf="showCookieSettings">
+          <button class="btn btn-link text-white" type="button" (click)="openCookieSettings()" role="button" tabindex="0">
+            {{ 'footer.link.cookies' | translate}}
+          </button>
+        </li>
+        <li *ngIf="showPrivacyPolicy">
+          <a class="btn text-white"
+             routerLink="info/privacy" role="link" tabindex="0">{{ 'footer.link.privacy-policy' | translate}}</a>
+        </li>
+        <li *ngIf="showEndUserAgreement">
+          <a class="btn text-white"
+             routerLink="info/end-user-agreement" role="link" tabindex="0">{{ 'footer.link.end-user-agreement' | translate}}</a>
+        </li>
+        <li *ngIf="showSendFeedback$ | async">
+          <a class="btn text-white"
+             routerLink="info/feedback" role="link" tabindex="0">{{ 'footer.link.feedback' | translate}}</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="coarLdnEnabled$ | async" class="notify-enabled text-white">
+      <a class="coar-notify-support-route" routerLink="info/coar-notify-support" role="link" tabindex="0">
+        <img class="n-coar" src="assets/images/n-coar.svg" [attr.alt]="'menu.header.image.logo' | translate" />
+        {{ 'footer.link.coar-notify-support' | translate }}
+      </a>
+    </div>
+  </div>
+  <!-- Copyright -->
+</footer>
