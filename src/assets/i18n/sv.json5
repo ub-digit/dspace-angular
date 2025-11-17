@@ -12194,5 +12194,8 @@
   // TODO New key - Add a translation
   "metadata-export-search.submit.error.limit-exceeded": "Only the first {{limit}} items will be exported",
 
+  /* GU custom translations */
+  "home.gupea-full-name": "Göteborgs universitets publikationer - elektroniskt arkiv",
+  "home.gupea-description": "GUPEA är ett universitetsgemensamt system för e-publicering av doktorsavhandlingar, studentuppsatser och andra forskningspublikationer."
 
 }

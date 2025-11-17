@@ -6882,4 +6882,9 @@
   "item.preview.organization.address.addressLocality": "City",
 
   "item.preview.organization.alternateName": "Alternative name",
+
+  /* GU custom translations */
+  "home.gupea-full-name": "Gothenburg University Publications Electronic Archive",
+  "home.gupea-description": "GUPEA is a platform for e-publishing of theses, student essays and other research publications."
+
 }
