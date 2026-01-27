@@ -26,7 +26,7 @@ export const workspaceItemPageResolver: ResolveFn<RemoteData<WorkspaceItem>> = (
   workspaceItemService: WorkspaceitemDataService = inject(WorkspaceitemDataService),
 ): Observable<RemoteData<WorkspaceItem>> => {
   return workspaceItemService.findById(route.params.id,
-    true,
+    false,
     false,
     ...SUBMISSION_LINKS_TO_FOLLOW,
   ).pipe(

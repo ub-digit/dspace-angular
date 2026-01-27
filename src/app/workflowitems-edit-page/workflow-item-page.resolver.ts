@@ -19,7 +19,7 @@ export const workflowItemPageResolver: ResolveFn<RemoteData<WorkflowItem>> = (
 ): Observable<RemoteData<WorkflowItem>> => {
   return workflowItemService.findById(
     route.params.id,
-    true,
+    false,
     false,
     ...SUBMISSION_LINKS_TO_FOLLOW,
   ).pipe(
