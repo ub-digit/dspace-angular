@@ -125,6 +125,11 @@ export class FullItemPageComponent extends ItemPageComponent implements OnInit, 
     );
   }
 
+  /* Only get last part of key for screen readers */
+  getLastPart(key: string): string {
+    return key.split('.').pop();
+  }
+
   /**
    * Navigate back in browser history.
    */
