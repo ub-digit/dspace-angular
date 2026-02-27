@@ -12196,6 +12196,11 @@
 
   /* GU custom translations */
   "home.gupea-full-name": "Göteborgs universitets publikationer - elektroniskt arkiv",
-  "home.gupea-description": "GUPEA är ett universitetsgemensamt system för e-publicering av doktorsavhandlingar, studentuppsatser och andra forskningspublikationer."
+  "home.gupea-description": "GUPEA är ett universitetsgemensamt system för e-publicering av doktorsavhandlingar, studentuppsatser och andra forskningspublikationer.",
+
+  "item.page.isbn": "ISBN",
+  "item.page.haspart": "Delarbeten",
+  "item.page.department": "Avdelning",
+  "item.page.defenceplace": "Plats för disputation"
 
 }
