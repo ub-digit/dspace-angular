@@ -6888,7 +6888,10 @@
   "home.gupea-description": "GUPEA is a platform for e-publishing of theses, student essays and other research publications.",
 
   "item.page.isbn": "ISBN",
+  "item.page.ispartofseries": "Part of the series",
   "item.page.haspart": "Articles",
   "item.page.department": "Department",
-  "item.page.defenceplace": "Defence location"
+  "item.page.defenceplace": "Defence location",
+  "item.page.opponent": "Opponent"
+
 }

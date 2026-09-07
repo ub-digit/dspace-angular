@@ -12199,8 +12199,10 @@
   "home.gupea-description": "GUPEA är ett universitetsgemensamt system för e-publicering av doktorsavhandlingar, studentuppsatser och andra forskningspublikationer.",
 
   "item.page.isbn": "ISBN",
+  "item.page.ispartofseries": "Ingår i serie",
   "item.page.haspart": "Delarbeten",
   "item.page.department": "Avdelning",
-  "item.page.defenceplace": "Plats för disputation"
+  "item.page.defenceplace": "Plats för disputation",
+  "item.page.opponent": "Opponent"
 
 }

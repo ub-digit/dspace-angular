@@ -74,6 +74,10 @@
       [label]="'item.page.isbn'">
     </ds-generic-item-page-field>
     <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.relation.ispartofseries']"
+      [label]="'item.page.ispartofseries'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
       [fields]="['dc.relation.haspart']"
       [separator]="'<br/><br/>'"
       [label]="'item.page.haspart'">
@@ -85,6 +89,10 @@
     <ds-generic-item-page-field [item]="object"
       [fields]="['dc.gup.defenceplace']"
       [label]="'item.page.defenceplace'">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.gup.opponent']"
+      [label]="'item.page.opponent'">
     </ds-generic-item-page-field>
     <ds-item-page-collections [item]="object"></ds-item-page-collections>
     <ds-item-page-uri-field [item]="object"
