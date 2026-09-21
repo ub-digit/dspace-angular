@@ -5539,7 +5539,7 @@
   "login.form.new-user": "Ny användare? Klicka här för att skapa ett användarkonto.",
 
   // "login.form.oidc": "Log in with OIDC",
-  "login.form.oidc": "Logga in med OIDC",
+  "login.form.oidc": "Logga in med GU-konto",
 
   // "login.form.orcid": "Log in with ORCID",
   // TODO New key - Add a translation
