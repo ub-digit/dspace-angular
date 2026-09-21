@@ -24,6 +24,7 @@ import { MetadataValue } from '../../../core/shared/metadata.models';
 import { VALUE_LIST_BROWSE_DEFINITION } from '../../../core/shared/value-list-browse-definition.resource-type';
 import { hasValue } from '../../../shared/empty.util';
 import { MetadataFieldWrapperComponent } from '../../../shared/metadata-field-wrapper/metadata-field-wrapper.component';
+import { LinkifyPipe } from '../../../shared/utils/linkify-pipe';
 import { MarkdownDirective } from '../../../shared/utils/markdown.directive';
 import { ImageField } from '../../simple/field-components/specific-field/image-field';
 
@@ -36,7 +37,7 @@ import { ImageField } from '../../simple/field-components/specific-field/image-f
   styleUrls: ['./metadata-values.component.scss'],
   templateUrl: './metadata-values.component.html',
   standalone: true,
-  imports: [MetadataFieldWrapperComponent, NgFor, NgTemplateOutlet, NgIf, RouterLink, AsyncPipe, TranslateModule, MarkdownDirective],
+  imports: [MetadataFieldWrapperComponent, NgFor, NgTemplateOutlet, NgIf, RouterLink, AsyncPipe, TranslateModule, MarkdownDirective, LinkifyPipe],
 })
 export class MetadataValuesComponent implements OnChanges {
 
@@ -66,6 +67,11 @@ export class MetadataValuesComponent implements OnChanges {
    * Mathjax will only be rendered if {@link MarkdownConfig#mathjax} is true.
    */
   @Input() enableMarkdown = false;
+
+  /**
+   * Whether URLs within the metadata text should be rendered as links.
+   */
+  @Input() enableLinkify = false;
 
   /**
    * Whether any valid HTTP(S) URL should be rendered as a link

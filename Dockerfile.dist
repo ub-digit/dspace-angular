@@ -10,6 +10,8 @@ FROM docker.io/node:18-alpine AS build
 # These are needed to install some node modules, especially on linux/arm64
 RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --network-timeout 300000

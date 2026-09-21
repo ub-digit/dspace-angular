@@ -43,6 +43,7 @@ import { DsoEditMenuComponent } from '../../shared/dso-page/dso-edit-menu/dso-ed
 import { hasValue } from '../../shared/empty.util';
 import { ErrorComponent } from '../../shared/error/error.component';
 import { ThemedLoadingComponent } from '../../shared/loading/themed-loading.component';
+import { LinkifyPipe } from '../../shared/utils/linkify-pipe';
 import { VarDirective } from '../../shared/utils/var.directive';
 import { ThemedItemAlertsComponent } from '../alerts/themed-item-alerts.component';
 import { CollectionsComponent } from '../field-components/collections/collections.component';
@@ -74,6 +75,7 @@ import { ThemedFullFileSectionComponent } from './field-components/file-section/
     NgForOf,
     AsyncPipe,
     KeyValuePipe,
+    LinkifyPipe,
     RouterLink,
     ThemedItemPageTitleFieldComponent,
     DsoEditMenuComponent,

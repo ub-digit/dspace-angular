@@ -19,7 +19,8 @@
             <ng-container *ngFor="let mdEntry of (metadata$ | async) | keyvalue">
               <tr *ngFor="let mdValue of mdEntry.value">
                 <td [attr.aria-label]="getLastPart(mdEntry.key)"><span aria-hidden="true">{{mdEntry.key}}</span></td>
-                <td>{{mdValue.value}}</td>
+                <td *ngIf="mdEntry.key === 'dc.relation.haspart'; else plainValue" [innerHTML]="mdValue.value | linkify"></td>
+                <ng-template #plainValue><td>{{mdValue.value}}</td></ng-template>
                 <td>{{mdValue.language}}</td>
               </tr>
             </ng-container>

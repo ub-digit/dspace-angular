@@ -4,6 +4,7 @@
     [separator]="separator"
     [label]="label"
     [enableMarkdown]="enableMarkdown"
+    [enableLinkify]="fields?.length === 1 && fields[0] === 'dc.relation.haspart'"
     [urlRegex]="urlRegex"
     [browseDefinition]="browseDefinition|async"
     [img]="img"

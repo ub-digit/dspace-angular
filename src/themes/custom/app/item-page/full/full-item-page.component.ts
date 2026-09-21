@@ -22,6 +22,7 @@ import { fadeInOut } from '../../../../../app/shared/animations/fade';
 import { DsoEditMenuComponent } from '../../../../../app/shared/dso-page/dso-edit-menu/dso-edit-menu.component';
 import { ErrorComponent } from '../../../../../app/shared/error/error.component';
 import { ThemedLoadingComponent } from '../../../../../app/shared/loading/themed-loading.component';
+import { LinkifyPipe } from '../../../../../app/shared/utils/linkify-pipe';
 import { VarDirective } from '../../../../../app/shared/utils/var.directive';
 
 /**
@@ -49,6 +50,7 @@ import { VarDirective } from '../../../../../app/shared/utils/var.directive';
     NgForOf,
     AsyncPipe,
     KeyValuePipe,
+    LinkifyPipe,
     RouterLink,
     ThemedItemPageTitleFieldComponent,
     DsoEditMenuComponent,
