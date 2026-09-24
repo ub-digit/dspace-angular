@@ -5968,10 +5968,10 @@
   "mydspace.status.mydspaceArchived": "I arkivet",
 
   // "mydspace.status.mydspaceValidation": "Validation",
-  "mydspace.status.mydspaceValidation": "Validering",
+  "mydspace.status.mydspaceValidation": "Klara för publicering",
 
   // "mydspace.status.mydspaceWaitingController": "Waiting for reviewer",
-  "mydspace.status.mydspaceWaitingController": "Väntar på kontrollant",
+  "mydspace.status.mydspaceWaitingController": "Väntar på granskning",
 
   // "mydspace.status.mydspaceWorkflow": "Workflow",
   "mydspace.status.mydspaceWorkflow": "Arbetsflöde",
@@ -7991,11 +7991,11 @@
 
   // "search.filters.namedresourcetype.Validation": "Validation",
   // TODO New key - Add a translation
-  "search.filters.namedresourcetype.Validation": "Validation",
+  "search.filters.namedresourcetype.Validation": "Klara för publicering",
 
   // "search.filters.namedresourcetype.Waiting for Controller": "Waiting for reviewer",
   // TODO New key - Add a translation
-  "search.filters.namedresourcetype.Waiting for Controller": "Waiting for reviewer",
+  "search.filters.namedresourcetype.Waiting for Controller": "Väntar på granskning",
 
   // "search.filters.namedresourcetype.Workflow": "Workflow",
   // TODO New key - Add a translation
@@ -8269,10 +8269,10 @@
   "submission.general.discard.confirm.submit": "Ja",
 
   // "submission.general.discard.confirm.title": "Discard submission",
-  "submission.general.discard.confirm.title": "Återkalla bidrag",
+  "submission.general.discard.confirm.title": "Radera bidrag",
 
   // "submission.general.discard.submit": "Discard",
-  "submission.general.discard.submit": "Återkalla",
+  "submission.general.discard.submit": "Radera",
 
   // "submission.general.back.submit": "Back",
   // TODO New key - Add a translation
@@ -9540,10 +9540,10 @@
   "submission.workflow.tasks.claimed.reject_help": "Om du har granskat posten och funnit att den <strong>inte</strong> uppfyller villkoren för att ingå i samlingen, välj \"Neka\".  Du kommer du att få ange orsaken till detta, samt om uppladdaren skall ändra något och försöka igen.",
 
   // "submission.workflow.tasks.claimed.return": "Return to pool",
-  "submission.workflow.tasks.claimed.return": "Returnera till uppladdningspoolen",
+  "submission.workflow.tasks.claimed.return": "Returnera till handläggargrupp",
 
   // "submission.workflow.tasks.claimed.return_help": "Return the task to the pool so that another user may perform the task.",
-  "submission.workflow.tasks.claimed.return_help": "Returnera till uppladdningspoolen så att den blir tillgänglig för andra användare.",
+  "submission.workflow.tasks.claimed.return_help": "Returnera till handläggargrupp så att den blir tillgänglig för andra användare.",
 
   // "submission.workflow.tasks.generic.error": "Error occurred during operation...",
   "submission.workflow.tasks.generic.error": "Ett fel har uppstått...",
