@@ -20,6 +20,8 @@ import {
 
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthMethod } from '../../core/auth/models/auth.method';
+import { AuthMethodType } from '../../core/auth/models/auth.method-type';
+
 import {
   getAuthenticationError,
   getAuthenticationMethods,
@@ -76,6 +78,7 @@ export class LogInComponent implements OnInit {
       select(getAuthenticationMethods),
       map((methods: AuthMethod[]) => methods
         .filter((authMethod: AuthMethod) => rendersAuthMethodType(authMethod.authMethodType) !== undefined)
+        .filter((authMethod: AuthMethod) => authMethod.authMethodType !== AuthMethodType.Password)
         .sort((method1: AuthMethod, method2: AuthMethod) => method1.position - method2.position),
       ),
     );
