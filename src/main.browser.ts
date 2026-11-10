@@ -23,8 +23,23 @@ const bootstrap = () => bootstrapApplication(AppComponent, browserAppConfig);
  */
 const hasTransferState = document.querySelector('script#dspace-angular-state') !== null;
 
+function loadSiteimprove(): void {
+  const scriptId = 'siteimprove-analytics';
+
+  if (document.getElementById(scriptId)) {
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.id = scriptId;
+  script.async = true;
+  script.src = 'https://siteimproveanalytics.com/js/siteanalyze_7340.js';
+  document.body.appendChild(script);
+}
+
 const main = () => {
   if (environment.production) {
+    loadSiteimprove();
     enableProdMode();
   }
 
