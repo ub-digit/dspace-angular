@@ -5,7 +5,118 @@ Repository revision: `ed5d8ce58`
 
 **The customization is relatively contained: 88 tracked files differ from the latest upstream commit incorporated into this fork.** Most migration work concerns the GUPEA theme, metadata rendering and deployment tooling. Two submission resolvers contain a workaround that should be reassessed before porting.
 
-This is a static assessment. No application code was modified and no target build or runtime tests were performed.
+The original assessment below describes the 8.x source branch. The phase 1 progress section records subsequent work on `gub-dspace-10.1`; unchecked acceptance items remain outstanding.
+
+## Phase 1: theme infrastructure — 17 November 2026
+
+Source: `gub-dspace-8_x`; target: `gub-dspace-10.1`. The target's application,
+package manifest and stock theme match the local `dspace-10.1` tag before this
+phase (the branch also adds migration documentation). The branch name in the
+repository instructions contains a typo; the actual target is `gub-dspace-10.1`.
+
+Completed:
+
+- Created `src/themes/gupea` from the **10.1** Sass pipeline and component-list
+  conventions. No 8.x theme NgModules or component implementations were copied.
+- Registered GUPEA eager/listable lists, intentionally empty until component work.
+  GUPEA explicitly extends `dspace`; the stock registrations remain necessary to
+  supply the current header, navbar, wrapper and homepage. Missing overrides
+  continue to fall back through the standard loader to core components.
+- Registered the non-injected `gupea-theme` CSS bundle and activated GUPEA with
+  CSS prefetch and institutional favicon/manifest head tags. Parent component
+  inheritance does not load parent CSS: GUPEA builds a complete stylesheet itself.
+- Ported GU blue, Nunito typography, links, tables, breadcrumbs, header dimensions,
+  banner/navbar/image variables and search filter/settings styles. Included the
+  250px community/collection logo maximum in theme variables, leaving core intact.
+- Used Bootstrap 5's semantic-color map extension, contrast-ratio setting,
+  `$table-striped-bg` and `.badge.bg-secondary`. Changed the mobile Sass breakpoint
+  to `media-breakpoint-down(md)` to preserve the 8.x coverage below 768px.
+  Core global styles are imported once in the theme bundle.
+- Copied the logo, all six responsive banner images, browser/device icons and
+  manifest byte-for-byte. Existing webpack asset discovery requires no changes.
+  Retained Google Fonts for Nunito; no font binaries were present on the source.
+- Ported the five recent submissions, accession-date sort, community page size 20,
+  disabled homepage discovery filters, and English/Swedish language selection.
+  Kept the existing sandbox REST endpoint; institutional deployment configuration
+  and backend compatibility remain separate tasks.
+
+Decisions and remaining work:
+
+- Custom header, wrapper, navbar, footer, home-news and community-list overrides
+  are **deferred**, as are item/metadata overrides and all core modifications.
+  The parent theme's stock logo and homepage remain visible for now; copying the
+  institutional assets alone does not activate their component presentation.
+- Keep normal 10.1 community pagination in this phase. The page size is 20, but
+  the old override that hid pagination was not ported, so more communities remain
+  reachable. Verify with a matching backend and more than 20 communities.
+- Do not restore the 95% default modal width without checking current dialogs.
+  Keep Bootstrap's target default for now. Bootstrap 4's YIQ threshold was replaced
+  with a contrast ratio of 4.5; review resulting button/badge colors visually.
+- Omit `create-favicons.sh`: its required source `logo.png` is missing. The existing
+  generated icons and manifest are retained; their relative icon references resolve
+  within `assets/gupea/images/favicons/`.
+- Full translation deltas, homepage copy, footer visibility, authentication,
+  analytics, resolver workarounds and Docker migration remain later phases.
+- The untracked `Dockerfile.dist.memoryfix` and `test` were present before this work
+  and were left untouched. No Git commits were created.
+
+Validation evidence:
+
+- Locked dependencies installed with `npm ci --ignore-scripts --no-audit --no-fund`
+  (a temporary npm cache was used). Initial sandbox registry DNS failure required
+  network approval. Installation used the initially active Node 26/npm 12 and
+  reported the expected project engine warning. No lockfile changes were made.
+- Installed temporary Node **22.23.5** and npm **10.9.4** under `/tmp`, without
+  changing the repository runtime configuration, for supported build validation.
+- `npm run build:lint` passed. Targeted ESLint passed for all four added/changed
+  TypeScript registration files under Node 22, using `ESLINT_USE_FLAT_CONFIG=false`
+  because this target still supplies `.eslintrc.json`. ESLint reports its existing
+  legacy-configuration deprecation warning.
+- The full GUPEA Sass pipeline compiled using Sass's JS API and a tilde importer
+  equivalent to webpack's resolution. Direct Sass CLI invocation cannot resolve
+  the target's existing `~node_modules` Font Awesome imports. Compilation reports
+  upstream Sass deprecations, but no theme compilation errors.
+- Parsed the resulting CSS and verified GU blue, the 250px logo maximum, supported
+  item-image variables, 60px/70px logo heights at the 768px breakpoint, and the
+  Bootstrap 5 facet badge rule.
+- Parsed Angular build configuration, YAML and the web manifest; verified GUPEA
+  selection/inheritance/prefetch, the non-injected bundle, homepage/language
+  settings, every favicon head-tag target and both manifest icon paths.
+- All 13 migrated asset files match `gub-dspace-8_x` byte-for-byte.
+- `git diff --check` passed. No new unit specs were added: this phase introduces
+  configuration, styles and static assets, with no component behavior changes.
+- Application type-check passed under Node 22:
+  `tsc --project tsconfig.app.json --noEmit --pretty false`.
+- Full `npm run lint` passed (0 errors, 1,505 repository warnings). This full run
+  used the initial Node 26 runtime; the targeted registration-file lint also
+  passed under supported Node 22. No core lint cleanups were included.
+- Initial `npm run build:prod` under Node 22/npm 10 failed with `EACCES` while
+  creating `.angular/cache/20.3.36`; the existing cache directory is not writable
+  in the sandbox (the legacy cache is owned by `nobody:nogroup`). The first
+  outside-sandbox retry was stopped before completion to bypass this cache.
+  Validation is being retried with `CI=true`, which disables Angular's local
+  persistent cache, two build workers and an 8GB heap, without project changes.
+  The browser production build passed and emitted `gupea-theme.css` (404.97kB)
+  and all 13 theme assets; emitted assets were checked byte-for-byte. Its initial
+  bundle is 3.47MB, above the 3MB warning budget (not an error). The build also
+  reports Sass deprecations and unused stock-custom-theme compilation warnings.
+  The SSR production build also passed (initial server bundle 8.28MB).
+  Full command: `CI=true NG_BUILD_MAX_WORKERS=2 NODE_OPTIONS=--max-old-space-size=8192 npm run build:prod`
+  with the temporary Node 22/npm 10 runtime on `PATH`. Exit status was 0.
+  Browser and server builds took approximately 326s and 309s, respectively.
+  Build log: `/tmp/dspace-migration-build-ci.log`; lint log:
+  `/tmp/dspace-migration-lint.log`. These temporary logs are not tracked.
+  The original cache failure did not identify theme source errors.
+
+No browser/SSR runtime session or backend integration checks were performed.
+The above static asset/configuration checks do not verify deployed URLs, language
+switching, banner cropping or the sandbox backend's search configuration.
+
+Next phase: migrate the header/wrapper/navbar as a coordinated theme-only change
+based on 10.1 templates, replacing the parent logo with the GUPEA SVG and retaining
+context help, keyboard controls and mobile navigation. Then migrate home-news,
+footer and community-list presentation; merge only the translation keys needed
+by each change. Validate SSR and responsive layouts against a 10.1 backend.
 
 ## Scope and comparison baseline
 
@@ -216,15 +327,15 @@ The highest uncertainty is the resolver workaround. The largest predictable effo
 | Submissions | New and resumed submissions, workflow editing, refreshes and repeat navigation without stale data or endless loading. |
 | Deployment | Updated Node image, reproducible dependency installation, cache behavior, configuration loading and asset URLs. |
 
-These checks remain outstanding; this report is a static migration assessment rather than a verified port.
+Runtime and visual acceptance checks remain outstanding. Phase 1 validation evidence is recorded above; it does not establish backend or production readiness.
 
 ## Migration task checklist
 
-All tasks are initially unchecked. For reassessment tasks, completion means recording a decision and its supporting evidence, including when a customization is deliberately omitted.
+Completed phase 1 infrastructure tasks are checked below; component and runtime acceptance tasks remain unchecked. For reassessment tasks, completion means recording a decision and its supporting evidence, including when a customization is deliberately omitted.
 
 ### Baseline and target environment
 
-- [ ] Create an isolated migration branch or checkout based on the exact `dspace-10.1` release.
+- [x] Create an isolated migration branch or checkout based on the exact `dspace-10.1` release.
 - [ ] Confirm the 88-file customization delta against `f9c2f3c86` and account for any changes made since this analysis.
 - [ ] Compare affected APIs and templates with the exact 10.1 tag; resolve assumptions based on the local upstream 10.x branch.
 - [ ] Establish a matching DSpace 10.1 backend in a test environment.
@@ -234,11 +345,11 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 
 ### Theme registration and framework migration
 
-- [ ] Create GUPEA theme scaffolding from the target release.
+- [x] Create GUPEA theme scaffolding from the target release.
 - [ ] Replace `eager-theme.module.ts` with target-style eager component registration for all six GUPEA overrides.
-- [ ] Replace or omit `lazy-theme.module.ts` and configure target listable-component registration as required.
-- [ ] Register GUPEA in the target global theme component lists and remove unused stock eager registrations.
-- [ ] Register `gupea-theme` in `angular.json` and activate GUPEA in runtime configuration.
+- [x] Replace or omit `lazy-theme.module.ts` and configure target listable-component registration as required.
+- [x] Register GUPEA in the target global theme component lists; retain the DSpace parent registrations required during phased migration.
+- [x] Register `gupea-theme` in `angular.json` and activate GUPEA in runtime configuration.
 - [ ] Convert custom templates to target Angular control-flow syntax.
 - [ ] Update component imports and inherited APIs to match 10.1.
 - [ ] Migrate Bootstrap 4 utility classes and Sass variables to Bootstrap 5 equivalents.
@@ -253,12 +364,12 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 - [ ] Port homepage title, introduction, banner markup and responsive styles.
 - [ ] Port community-list presentation and verify target collection inputs.
 - [ ] Decide how communities beyond the first 20 remain discoverable when pagination is hidden.
-- [ ] Port institutional colors, typography, link, table and breadcrumb styles.
+- [x] Port institutional colors, typography, link, table and breadcrumb styles.
 - [ ] Review the 95% modal-width override against target dialogs.
-- [ ] Port supported header, banner, navbar and image CSS variables.
-- [ ] Update search facet/settings styling and badge selectors.
-- [ ] Review global-style imports to avoid duplicating target styles.
-- [ ] Decide whether to retain Google Fonts loading or host Nunito locally.
+- [x] Port supported header, banner, navbar and image CSS variables.
+- [x] Update search facet/settings styling and badge selectors.
+- [x] Review global-style imports to avoid duplicating target styles.
+- [x] Decide whether to retain Google Fonts loading or host Nunito locally.
 
 ### Item metadata and accessibility
 
@@ -283,7 +394,7 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 ### Logos, thumbnails and search results
 
 - [ ] Implement community/collection logo sizing through target theme or CSS extension points.
-- [ ] Move the 250px logo-width setting into GUPEA overrides if supported.
+- [x] Move the 250px logo-width setting into GUPEA overrides if supported.
 - [ ] Verify small logos, aspect ratios and failed-image fallback behavior.
 - [ ] Check for target configuration to suppress missing-thumbnail placeholders; otherwise port a theme override.
 - [ ] Port thumbnail removal from item grid cards.
@@ -292,11 +403,11 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 
 ### Configuration
 
-- [ ] Port and validate favicon and manifest `headTags`.
-- [ ] Set recent-submission page size to five.
+- [x] Port and validate favicon and manifest `headTags`.
+- [x] Set recent-submission page size to five.
 - [ ] Verify accession-date sorting against backend search configuration.
-- [ ] Port the community-list page size after resolving the pagination decision.
-- [ ] Disable homepage discovery filters using supported target configuration.
+- [x] Port the community-list page size after resolving the pagination decision.
+- [x] Disable homepage discovery filters using supported target configuration.
 - [ ] Enable English and Swedish and verify language switching.
 - [ ] Configure the intended test/production REST endpoints using the deployment configuration inventory.
 
@@ -328,11 +439,11 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 
 ### Assets
 
-- [ ] Copy the GUPEA SVG logo.
-- [ ] Copy all six responsive JPG/WebP banner assets.
-- [ ] Copy favicon, touch-icon and Android icon assets.
-- [ ] Copy and validate the Gupea web manifest and its relative icon URLs.
-- [ ] Decide whether to retain the favicon generator and locate or replace its missing `logo.png` source.
+- [x] Copy the GUPEA SVG logo.
+- [x] Copy all six responsive JPG/WebP banner assets.
+- [x] Copy favicon, touch-icon and Android icon assets.
+- [x] Copy and validate the Gupea web manifest and its relative icon URLs.
+- [x] Decide whether to retain the favicon generator and locate or replace its missing `logo.png` source.
 - [ ] Verify deployed asset URLs and banner cropping at mobile and desktop breakpoints.
 
 ### Docker and release tooling
@@ -353,7 +464,7 @@ All tasks are initially unchecked. For reassessment tasks, completion means reco
 
 ### Final verification and acceptance
 
-- [ ] Run the target production build and relevant lint/type checks.
+- [x] Run the target production build and relevant lint/type checks (phase 1; rerun after subsequent code migrations).
 - [ ] Verify SSR/initial rendering and theme loading without unexpected flicker.
 - [ ] Verify keyboard navigation, mobile navigation, language switching and footer visibility.
 - [ ] Complete the metadata, search, authentication, submission and deployment checks above.
