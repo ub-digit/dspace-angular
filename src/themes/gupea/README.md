@@ -1,8 +1,8 @@
 # GUPEA theme infrastructure (DSpace 10.1)
 
 `config/config.yml` selects `gupea`, with `dspace` as its component parent.
-The DSpace eager and listable registrations remain enabled because GUPEA uses
-those components until its own overrides are migrated. Missing parent overrides
+The DSpace eager and listable registrations remain enabled because GUPEA
+inherits the wrapper, navbar and homepage from that theme. Missing parent overrides
 fall back to core components through the standard theme loader.
 
 `angular.json` builds `gupea-theme.css` without injecting it. DSpace loads that
@@ -12,16 +12,22 @@ for components, not styles: `styles/theme.scss` therefore includes the full
 bundle is needed for this configuration.
 
 Add future eager overrides to `eager-theme-components.ts` and components using
-`@listableObjectComponent` to `lazy-listable-components.ts`. Both lists are
-intentionally empty in this infrastructure phase. Do not restore the 8.x theme
-NgModules. Keep the 10.1 navigation, accessibility and responsive behavior when
-migrating the custom header, wrapper, navbar, footer and homepage components.
+`@listableObjectComponent` to `lazy-listable-components.ts`. The eager list
+currently registers the GUPEA header; the listable list is empty. Do not restore
+the 8.x theme NgModules. Keep the 10.1 accessibility and responsive behavior
+when migrating the remaining footer and homepage components.
 
 Assets are copied automatically by the existing webpack theme asset rule to
-`assets/gupea/`. The GUPEA logo and responsive banners are ready for subsequent
-component work; they do not replace the parent theme's logo or homepage yet.
+`assets/gupea/`. The GUPEA header now uses the institutional SVG logo. The
+responsive banners remain available for the upcoming homepage migration.
 Favicons and the web manifest are active through theme `headTags`. The favicon
 generator was omitted because its source `logo.png` is absent on the 8.x branch.
+
+The header extends the 10.1 DSpace themed header and references its stylesheet.
+Its template differs from the target header only in the logo URL. No separate
+GUPEA wrapper/navbar is needed: all three 8.x files in each of those directories
+were identical to upstream 8.x. Continue to inherit their current 10.1 versions,
+including mobile animations, dynamic navigation and the authenticated user menu.
 
 Nunito continues to load from Google Fonts as in 8.x. Bootstrap 5 contrast
 selection replaces the old YIQ threshold; table stripes and badges use Bootstrap

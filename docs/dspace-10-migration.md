@@ -5,7 +5,91 @@ Repository revision: `ed5d8ce58`
 
 **The customization is relatively contained: 88 tracked files differ from the latest upstream commit incorporated into this fork.** Most migration work concerns the GUPEA theme, metadata rendering and deployment tooling. Two submission resolvers contain a workaround that should be reassessed before porting.
 
-The original assessment below describes the 8.x source branch. The phase 1 progress section records subsequent work on `gub-dspace-10.1`; unchecked acceptance items remain outstanding.
+The original assessment below describes the 8.x source branch. The phase progress sections record subsequent work on `gub-dspace-10.1`; unchecked acceptance items remain outstanding.
+
+## Phase 2: header and navigation — 18 November 2026
+
+Selected group: the header, header/navbar wrapper and public navbar identified
+as the next phase after theme infrastructure. No other migration group was started.
+
+Three-way comparison:
+
+- Compared `gub-dspace-8_x:src/themes/gupea/app/{header,header-nav-wrapper,navbar}`
+  with the corresponding stock theme directories at upstream baseline
+  `f9c2f3c86`, and with `dspace-10.1` / the current target's stock theme.
+- **The only local component customization in these three directories is the
+  header logo URL.** The wrapper/navbar TypeScript, templates and styles, and
+  header TypeScript/styles, are byte-identical to upstream 8.x. The inventory's
+  descriptions of copied navigation code should not imply institution-specific
+  functionality that needs to be recreated.
+- Upstream 10.1 introduces Angular control flow, Bootstrap 5 spacing and header
+  flex-layout changes. These are retained, along with all current controls,
+  including context help (already present upstream in 8.x). No obsolete 8.x
+  wrapper/navbar code or redundant lifecycle implementation was copied. The
+  target also moves navbar item styling out of the wrapper; inheriting the current
+  components avoids restoring obsolete Bootstrap 4 padding/style rules.
+
+Implementation:
+
+- Added the GUPEA header as a subclass of the **10.1 themed DSpace header**,
+  reusing its lifecycle/menu behavior and referencing its existing stylesheet.
+  Its template is the current 10.1 header with only the logo path changed to
+  `assets/gupea/images/gupea-logo.svg`.
+- Registered the header in GUPEA's eager component list. Keep the DSpace parent
+  eager list because it still supplies the wrapper, navbar and home-news.
+- Deliberately retain wrapper/navbar through `extends: dspace` rather than add
+  identical overrides. This preserves mobile animation, dynamic menu sections,
+  authenticated mobile user menu and the current accessibility attributes.
+- Kept the existing English/Swedish generic repository-logo alternative text and
+  translated home-link label. No new or changed translation keys are required.
+- Added focused tests for logo/home link, desktop navigation and all five header
+  controls (including context help), mobile expansion ARIA state and delegation
+  of toggling to the public menu service. Child controls are isolated in these
+  tests; their real authentication/language/menu integrations need runtime review.
+- Updated the theme README. Core components, global configuration and assets are
+  unchanged; no Git commits were created. Existing untracked local files were
+  left untouched, including `test2`, present at the start of this resumed turn.
+
+Validation:
+
+- Application TypeScript check passed with Node 22.23.5:
+  `tsc --project tsconfig.app.json --noEmit --pretty false`.
+- Targeted ESLint passed for the header implementation, template, spec and eager
+  registration with no lint findings (`ESLINT_USE_FLAT_CONFIG=false`). The tool
+  reports the target's existing legacy-config deprecation warning.
+- Focused Karma/Jasmine tests passed: **4/4** in headless Chromium 144, exit 0.
+  Command (Node 22 on `PATH`, outside the sandbox):
+  `CI=true NG_BUILD_MAX_WORKERS=2 CHROME_BIN=/usr/bin/chromium node_modules/.bin/ng test --watch=false --configuration test --source-map=false --browsers=ChromeHeadless --include=src/themes/gupea/app/header/header.component.spec.ts`.
+  Log: `/tmp/gupea-phase2-tests.log` (temporary, untracked).
+- Production browser build passed, emitting `gupea-theme.css` (404.97kB).
+  Initial browser bundle: 3.47MB; the existing 3MB warning budget is exceeded by
+  471.82kB. Sass deprecations and unused stock-custom-theme compilation warnings
+  remain. Production SSR build also passed (initial server bundle 8.29MB).
+  The full command exited 0, using Node 22.23.5/npm 10.9.4:
+  `CI=true NG_BUILD_MAX_WORKERS=2 NODE_OPTIONS=--max-old-space-size=8192 npm run build:prod`.
+  Browser/server compilation took approximately 415s/320s; the browser build ran
+  concurrently with focused tests. Log: `/tmp/gupea-phase2-build.log` (untracked).
+- Three-way scope assertions passed: the 8.x GUPEA wrapper/navbar trees match
+  upstream 8.x; the new header template matches 10.1 except for its logo URL.
+- `git diff --check` passed. No full lint rerun was needed for this small theme
+  change; targeted lint and the production/test compilers covered the changed files.
+- Test tooling issues: the target Karma configuration's `sourceMap.hidden` is
+  rejected by the current test builder; `--source-map=false` bypasses it without
+  changing project files. Karma's port binding is prohibited in the sandbox, so
+  tests passed outside it. Production uses `CI=true` to bypass the
+  pre-existing unwritable Angular cache, with two workers and an 8GB heap.
+
+Outstanding acceptance: actual mobile/desktop layout, keyboard navigation,
+search, language switching, login/impersonation and SSR initial rendering against
+an institutionally configured 10.1 backend. The configured REST endpoint remains
+`https://sandbox.dspace.org/server`; unit tests do not contact it. No authenticated
+backend interaction or live-site testing was performed in this phase.
+
+Next group: migrate GUPEA home-news (institutional title, introduction, responsive
+banner and only the translation keys it needs). Review homepage community-list
+presentation alongside its pagination decision; keep later footer, metadata,
+authentication and deployment work separate. Stop after this header/navigation
+group until another migration request authorizes further work.
 
 ## Phase 1: theme infrastructure — 17 November 2026
 
@@ -40,7 +124,7 @@ Completed:
   Kept the existing sandbox REST endpoint; institutional deployment configuration
   and backend compatibility remain separate tasks.
 
-Decisions and remaining work:
+Decisions and work remaining at the phase 1 handoff:
 
 - Custom header, wrapper, navbar, footer, home-news and community-list overrides
   are **deferred**, as are item/metadata overrides and all core modifications.
@@ -112,11 +196,10 @@ No browser/SSR runtime session or backend integration checks were performed.
 The above static asset/configuration checks do not verify deployed URLs, language
 switching, banner cropping or the sandbox backend's search configuration.
 
-Next phase: migrate the header/wrapper/navbar as a coordinated theme-only change
-based on 10.1 templates, replacing the parent logo with the GUPEA SVG and retaining
-context help, keyboard controls and mobile navigation. Then migrate home-news,
-footer and community-list presentation; merge only the translation keys needed
-by each change. Validate SSR and responsive layouts against a 10.1 backend.
+The header/navigation follow-on is now recorded in phase 2 above. Home-news,
+footer and community-list presentation remain later work; merge only the
+translation keys needed by each change. Runtime validation still requires SSR
+and responsive-layout checks against a matching 10.1 backend.
 
 ## Scope and comparison baseline
 
@@ -356,9 +439,9 @@ Completed phase 1 infrastructure tasks are checked below; component and runtime 
 
 ### Theme components and styling
 
-- [ ] Port the GUPEA header logo, navigation layout, search and account controls.
-- [ ] Port the header/navbar wrapper and mobile-menu behavior.
-- [ ] Port dynamic navbar sections and the mobile user menu.
+- [x] Port the GUPEA header logo, navigation layout, search and account controls using the 10.1 header.
+- [x] Reassess the header/navbar wrapper: inherit 10.1; the 8.x GUPEA copy has no local changes.
+- [x] Reassess navbar sections and the mobile user menu: inherit 10.1; no local 8.x changes to port.
 - [ ] Decide intended footer link visibility and correct the misspelled property names.
 - [ ] Port the footer while retaining required target footer behavior and COAR Notify support.
 - [ ] Port homepage title, introduction, banner markup and responsive styles.
@@ -464,7 +547,7 @@ Completed phase 1 infrastructure tasks are checked below; component and runtime 
 
 ### Final verification and acceptance
 
-- [x] Run the target production build and relevant lint/type checks (phase 1; rerun after subsequent code migrations).
+- [x] Run the target production build and relevant lint/type checks (phases 1 and 2; rerun after subsequent code migrations).
 - [ ] Verify SSR/initial rendering and theme loading without unexpected flicker.
 - [ ] Verify keyboard navigation, mobile navigation, language switching and footer visibility.
 - [ ] Complete the metadata, search, authentication, submission and deployment checks above.

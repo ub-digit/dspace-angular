@@ -1,5 +1,9 @@
+/* eslint-disable dspace-angular-ts/themed-component-usages */
+import { HeaderComponent } from './app/header/header.component';
+
 /**
- * GUPEA eager overrides. Add migrated components here in subsequent phases.
- * The DSpace parent theme supplies the current navigation and homepage.
+ * GUPEA eager overrides; other components are supplied by the DSpace parent theme.
  */
-export const COMPONENTS = [];
+export const COMPONENTS = [
+  HeaderComponent,
+];
