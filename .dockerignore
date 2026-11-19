@@ -28,3 +28,7 @@ webpack.records.json
 
 # Yarn no longer used
 yarn.lock
+
+# Local Angular cache and translation tooling
+.angular
+gub_i18n

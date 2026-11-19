@@ -1,0 +1,47 @@
+FROM docker.io/node:22-bookworm AS deps
+
+# Install build tools (needed for some node modules)
+RUN apt-get update && apt-get install -y \
+    python3 make g++ \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy dependency manifests and install first (for better caching)
+COPY package.json package-lock.json ./
+
+RUN npm ci \
+ && sha256sum package.json package-lock.json > .dependency-manifests
+
+FROM docker.io/node:22-bookworm AS dev
+
+# Install build tools (needed for some node modules)
+RUN apt-get update && apt-get install -y \
+    python3 make g++ \
+ && rm -rf /var/lib/apt/lists/*
+
+# Create cache directory
+RUN mkdir -p /cache
+
+WORKDIR /app
+
+# Copy pre-installed node_modules from build stage into cache
+COPY --from=deps /app/node_modules /cache/node_modules
+COPY --from=deps /app/.dependency-manifests /cache/.dependency-manifests
+COPY . /app/
+
+# Copy entrypoint script
+COPY docker-entrypoint.dev.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+EXPOSE 4000
+
+# When running in dev mode, 4GB of memory is required to build & launch the app.
+# This default setting can be overridden as needed in your shell, via an env file or in docker-compose.
+# See Docker environment var precedence: https://docs.docker.com/compose/environment-variables/envvars-precedence/
+ENV NODE_OPTIONS="--max_old_space_size=4096"
+
+ENV NODE_ENV=development
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["npm", "run", "serve", "--", "--watch", "--host", "0.0.0.0", "--poll", "5000"]
