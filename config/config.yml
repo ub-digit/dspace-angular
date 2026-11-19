@@ -6,7 +6,6 @@ rest:
 
 themes:
   - name: gupea
-    # Keep the current 10.1 components until GUPEA overrides are migrated.
     extends: dspace
     prefetch: true
     headTags:
@@ -49,3 +48,8 @@ languages:
   - code: sv
     label: Svenska
     active: true
+
+info:
+  enableCookieConsentPopup: false
+  enablePrivacyStatement: false
+  enableEndUserAgreement: false

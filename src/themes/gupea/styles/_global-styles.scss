@@ -21,3 +21,9 @@
     font-size: 1.1rem;
   }
 }
+
+// Preserve intrinsic image sizes within the GUPEA logo limits.
+.dso-logo img.w-100 {
+  width: auto !important;
+  max-width: min(100%, var(--ds-comcol-logo-max-width));
+}
