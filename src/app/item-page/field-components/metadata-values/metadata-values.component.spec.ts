@@ -103,6 +103,27 @@ describe('MetadataValuesComponent', () => {
     expect(separators.length).toBe(mockMetadata.length - 1);
   });
 
+  it('links embedded URLs only when enabled and retains separators and language', () => {
+    comp.mdValues = [
+      { language: 'en_US', value: 'Read https://example.org/path' },
+      { language: 'sv', value: '<b>Text</b>\nhttps://example.org/another' },
+    ] as MetadataValue[];
+    fixture.detectChanges();
+    expect(fixture.debugElement.queryAll(By.css('a')).length).toBe(0);
+
+    comp.enableLinkify = true;
+    fixture.detectChanges();
+
+    const links = fixture.debugElement.queryAll(By.css('a'));
+    expect(links.map(link => link.nativeElement.getAttribute('href'))).toEqual([
+      'https://example.org/path',
+      'https://example.org/another',
+    ]);
+    expect(links[0].nativeElement.parentElement.getAttribute('lang')).toBe('en-US');
+    expect(fixture.debugElement.queryAll(By.css('.separator br')).length).toBe(1);
+    expect(fixture.debugElement.query(By.css('b'))).toBeNull();
+  });
+
   it('should correctly detect a pattern on string containing "test"', () => {
     const mdValue = { value: 'This is a test value' } as MetadataValue;
     expect(comp.hasLink(mdValue)).toBe(true);

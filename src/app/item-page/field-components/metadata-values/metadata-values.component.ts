@@ -33,6 +33,7 @@ import {
 
 import { environment } from '../../../../environments/environment';
 import { MetadataFieldWrapperComponent } from '../../../shared/metadata-field-wrapper/metadata-field-wrapper.component';
+import { LinkifyPipe } from '../../../shared/utils/linkify.pipe';
 import { MarkdownDirective } from '../../../shared/utils/markdown.directive';
 import { NormalizeLanguageCodePipe } from '../../../shared/utils/normalize-language-code.pipe';
 import { ImageField } from '../../simple/field-components/specific-field/image-field';
@@ -47,6 +48,7 @@ import { ImageField } from '../../simple/field-components/specific-field/image-f
   templateUrl: './metadata-values.component.html',
   imports: [
     AsyncPipe,
+    LinkifyPipe,
     MarkdownDirective,
     MetadataFieldWrapperComponent,
     NgTemplateOutlet,
@@ -84,6 +86,9 @@ export class MetadataValuesComponent implements OnChanges {
    * Mathjax will only be rendered if {@link MarkdownConfig#mathjax} is true.
    */
   @Input() enableMarkdown = false;
+
+  /** Whether to render embedded HTTP(S) URLs in plain text as links. */
+  @Input() enableLinkify = false;
 
   /**
    * Whether any valid HTTP(S) URL should be rendered as a link

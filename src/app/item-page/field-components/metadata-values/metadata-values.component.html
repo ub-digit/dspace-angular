@@ -2,11 +2,12 @@
   @for (mdValue of mdValues; track mdValue; let last = $last) {
     @let isVocabulary = isControlledVocabulary(mdValue);
     <!--
-    Choose a template. Priority: vocabulary, markdown, link, browse link.
+    Choose a template. Priority: vocabulary, linkified text, markdown, link, search link, browse link.
     -->
       <ng-container
         *ngTemplateOutlet="
           isVocabulary ? controlledVocabulary :
+          enableLinkify ? linkified :
           renderMarkdown ? markdown :
           hasLink(mdValue) ? (hasValue(img) ? linkImg : link) :
           hasSearchFilter() ? searchlink :
@@ -19,6 +20,10 @@
     }
   }
 </ds-metadata-field-wrapper>
+
+<ng-template #linkified let-value="value" let-lang="lang">
+  <span class="dont-break-out preserve-line-breaks" [attr.lang]="lang | dsNormalizeLanguageCode" [innerHTML]="value | dsLinkify"></span>
+</ng-template>
 
 <ng-template #searchlink let-value="value">
   <a class="ds-search-link"
