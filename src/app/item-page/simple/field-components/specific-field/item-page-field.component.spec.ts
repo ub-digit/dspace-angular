@@ -93,23 +93,19 @@ describe('ItemPageFieldComponent', () => {
     expect(fixture.nativeElement.innerHTML).toContain(mockValue);
   });
 
-  it('linkifies embedded URLs only when the sole configured field is dc.relation.haspart', () => {
+  it('linkifies embedded URLs when the field opts in', () => {
     const hasPart = 'dc.relation.haspart';
     const url = 'https://example.org/article';
-    comp.item = mockItemWithMetadataFieldsAndValue([hasPart, mockField], `Article: ${url}`);
-    const host: HTMLElement = fixture.nativeElement;
-
+    comp.item = mockItemWithMetadataFieldsAndValue([hasPart], `Article: ${url}`);
     comp.fields = [hasPart];
     fixture.detectChanges();
+
+    const host: HTMLElement = fixture.nativeElement;
+    expect(host.querySelector('a')).toBeNull();
+
+    fixture.componentRef.setInput('enableLinkify', true);
+    fixture.detectChanges();
     expect(host.querySelector('a')?.getAttribute('href')).toBe(url);
-
-    comp.fields = [mockField];
-    fixture.detectChanges();
-    expect(host.querySelector('a')).toBeNull();
-
-    comp.fields = [hasPart, mockField];
-    fixture.detectChanges();
-    expect(host.querySelector('a')).toBeNull();
   });
 
   describe('when markdown is disabled in the environment config', () => {
