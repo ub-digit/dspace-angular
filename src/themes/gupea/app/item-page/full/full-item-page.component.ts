@@ -49,4 +49,8 @@ import { VarDirective } from '../../../../../app/shared/utils/var.directive';
 })
 /** GUPEA presentation for the full metadata page. */
 export class FullItemPageComponent extends BaseComponent {
+  /** Return the last segment of the metadata key for the row header’s accessible name. */
+  protected getLastPart(key: string): string {
+    return key.split('.').pop();
+  }
 }

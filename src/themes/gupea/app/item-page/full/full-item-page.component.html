@@ -24,7 +24,9 @@
                     @for (mdEntry of (metadata$ | async) | keyvalue; track mdEntry) {
                       @for (mdValue of mdEntry.value; track mdValue) {
                         <tr>
-                          <th scope="row" class="fw-normal">{{mdEntry.key}}</th>
+                          <th scope="row" class="fw-normal" [attr.aria-label]="getLastPart(mdEntry.key)">
+                            <span aria-hidden="true">{{mdEntry.key}}</span>
+                          </th>
                           @if (mdEntry.key === 'dc.relation.haspart') {
                             <td class="preserve-line-breaks" [innerHTML]="mdValue.value | dsLinkify"></td>
                           } @else {
