@@ -2,7 +2,7 @@
 
 `config/config.yml` selects `gupea`, with `dspace` as its component parent.
 The DSpace eager and listable registrations remain enabled because GUPEA
-inherits the wrapper, navbar and homepage from that theme. Missing parent overrides
+inherits the wrapper and navbar from that theme. Missing parent overrides
 fall back to core components through the standard theme loader.
 
 `angular.json` builds `gupea-theme.css` without injecting it. DSpace loads that
@@ -11,17 +11,24 @@ for components, not styles: `styles/theme.scss` therefore includes the full
 10.1 Sass pipeline and one import of the core global styles. No DSpace CSS
 bundle is needed for this configuration.
 
-Add future eager overrides to `eager-theme-components.ts` and components using
-`@listableObjectComponent` to `lazy-listable-components.ts`. The eager list
-currently registers the GUPEA header; the listable list is empty. Do not restore
-the 8.x theme NgModules. Keep the 10.1 accessibility and responsive behavior
-when migrating the remaining footer and homepage components.
+The eager list registers the header and home-news overrides. The listable
+registry supplies the simple item page and item grid cards. The full metadata
+and thumbnail components load through their themed wrappers. The footer uses
+the standard 10.1 component with the link visibility set in `config/config.yml`.
+The homepage community list keeps its paginator and RSS behavior.
 
 Assets are copied automatically by the existing webpack theme asset rule to
-`assets/gupea/`. The GUPEA header now uses the institutional SVG logo. The
-responsive banners remain available for the upcoming homepage migration.
-Favicons and the web manifest are active through theme `headTags`. The favicon
-generator was omitted because its source `logo.png` is absent on the 8.x branch.
+`assets/gupea/`. The header uses the institutional SVG logo, and the home-news
+override uses the responsive banner images and translated archive introduction.
+Favicons and the web manifest are active through theme `headTags`. To regenerate
+the raster icons, install ImageMagick and `rsvg-convert`, then run
+`src/themes/gupea/assets/images/favicons/create-favicons.sh` from the repository
+root. The script uses `logo.png` if supplied alongside it and otherwise uses
+the tracked `favicon.svg`. Pass a source image and an output directory to
+generate previews outside the theme. Raster inputs need only ImageMagick.
+
+The [Python translation workflow](../../../gub_i18n/README.md) generates
+reviewable candidate catalogs from the retained GUPEA snapshots.
 
 The header extends the 10.1 DSpace themed header and references its stylesheet.
 Its template differs from the target header only in the logo URL. No separate
@@ -31,8 +38,8 @@ including mobile animations, dynamic navigation and the authenticated user menu.
 
 Nunito continues to load from Google Fonts as in 8.x. Bootstrap 5 contrast
 selection replaces the old YIQ threshold; table stripes and badges use Bootstrap
-5 names. The old 95% default modal width is intentionally deferred until dialogs
-can be reviewed. The 250px community/collection logo maximum is now theme scoped.
+5 names. Medium dialogs use the 8.x 95% maximum width. The 250px community/collection
+logo maximum is theme scoped, and failed logos use the 8.x proportional SVG.
 
 Validate using a supported Node release (see `package.json`) and the committed
 npm lockfile, rather than the historical 8.x Yarn instructions:

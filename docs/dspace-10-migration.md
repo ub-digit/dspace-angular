@@ -7,6 +7,105 @@ Repository revision: `ed5d8ce58`
 
 The original assessment below describes the 8.x source branch. The phase progress sections record subsequent work on `gub-dspace-10.1`; unchecked acceptance items remain outstanding.
 
+## Frontend migration continuation — 18 November 2026
+
+The source comparison uses the incorporated upstream 8.x baseline
+`f9c2f3c86`, the GUPEA source branch `gub-dspace-8_x`, and the exact
+`dspace-10.1` tag. The original snapshot at `ed5d8ce58` differs from the
+8.x baseline in 88 files. The source branch now differs in 90 files because
+it also carries the repository guidelines and this report.
+
+| Area | 10.1 implementation and comparison decision |
+|---|---|
+| Home news | The 8.x GUPEA override replaced the stock promotional copy and image. The GUPEA 10.1 override uses the target layout and stylesheet, retains localized site CMS content when supplied, and uses the institutional banner and translated introduction as fallback. |
+| Footer | The 8.x GUPEA template omitted the top section and attempted to hide the cookie, privacy and agreement links. The base lifecycle reset the cookie flag and the other two subclass properties were misspelled. The target supports the intended visibility via `info`; adopting those flags also disables the cookie popup. The stock footer preserves accessibility, authorized feedback and configured COAR Notify links. |
+| Communities | Upstream 10.1 already hides the gear. The GUPEA 8.x template also suppressed pagination and its detail. Retain the target paginator, count and RSS input so all communities remain accessible at page size 20. |
+| Item pages | The 8.x changes were six extra fields and embedded URL links for constituent articles. GUPEA overrides the target's untyped and full item templates and inherits their behavior. The target metadata renderer has an opt-in linkification input that preserves controlled vocabulary precedence, language, separators and the stock rendering paths. On the simple item page, the GUPEA template enables it explicitly for the `dc.relation.haspart` field. Full metadata displays complete keys and uses their final segments as the accessible names of the row headers. Embedded links open in the same tab. The stock custom-theme pipe import is unnecessary. |
+| Logos and thumbnails | The 8.x logo override removed forced scaling and changed the SVG fallback. The GUPEA stylesheet enables intrinsic logo sizing with a 250px cap and uses the proportional SVG fallback from GUPEA 8.x. The 10.1 thumbnail component has no missing-placeholder option, so GUPEA omits its placeholder branch while preserving the target image and loading states. Item grid overrides drop thumbnail markup for both search results and direct item collections. The stock badge defaults remain because global suppression also hides access and workflow status. |
+| Translations | Merged the changed English keys, institutional OIDC wording and Swedish deltas into the 10.1 files. Retained improved upstream Swedish wording; updated compatible Swedish fallback strings where 8.x supplied translations, including related subscription text with target interpolation intact. Omitted removed keys and preserved newer wording where parameters or meaning changed. Both languages add the eight GUPEA homepage/metadata keys. Restored the 8.x Python workflow and snapshots for generating reviewable candidates from original-language comments. The updater skips entries with changed interpolation parameters. |
+| Modal width | Set the GUPEA Bootstrap 5 medium dialog maximum width to 95%, matching 8.x. |
+| Login and submission | 10.1 discovers backend-advertised methods and exposes an optional per-view method exclusion. Keep advertised methods available until GU confirms the administrative login policy and OIDC deployment. Keep stock workspace/workflow caching pending reproduction of the 8.x loading problem on an authenticated GUPEA 10.1 backend. |
+| Siteimprove | The 8.x browser entry point loaded the vendor script on every production page without consulting the consent service. The 10.1 Orejime configuration has no Siteimprove integration and the GUPEA footer settings disable its popup. Activation requires the institutional consent, withdrawal and SPA tracking behavior to be confirmed. |
+| Container tooling | Stock 10.1 production Dockerfile already uses Node 22, `npm ci` and exec-form PM2 commands. The GUPEA development image uses Node 22, npm lockfile caching and an explicit entrypoint; external Compose configuration was unavailable. Mount project source at `/app` and use a writable `/cache`; ensure `/app/node_modules` is absent or linked to `/cache/node_modules` to use the image cache. Updated institutional script tags to 10.1 and chose `release-2026.11.002` as the local migration label. Avoid using the malformed untracked alternate Dockerfile or applying the old metadata patch. |
+
+Implementation and code-level verification are separate from institutional
+acceptance. The REST endpoint still points to the public sandbox. No institutional
+test backend, authentication policy, production Compose overrides
+or GUPEA records were available in the repository. Verify the metadata registry
+and forms, actual records and search sorting, English/Swedish switching,
+screen-reader announcements, banner and logo layout, links and access badges,
+keyboard and mobile navigation, OIDC and administrator access, and repeated
+authenticated submission/workflow navigation in the institutional environment.
+
+### Continuation validation — 18–19 November 2026
+
+- Full lint passed with 0 errors and 1,505 repository warnings. Angular
+  application template/type checking passed with `ngc -p
+  tsconfig.app.json --noEmit` under Node 22.23.5.
+- Parsed both merged JSON5 files. English changes 14 existing values, Swedish
+  changes 202, and each adds eight keys. Every original 10.1 key and its
+  interpolation parameters are present in the merge.
+- Production browser and SSR compilation passed under Node 22.23.5 with
+  `CI=true NG_BUILD_MAX_WORKERS=2 NODE_OPTIONS=--max-old-space-size=8192`.
+  The emitted initial server bundle is 8.32 MB. Browser compilation emitted
+  `gupea-theme.css` (405.06 kB) with the GUPEA logo sizing rule. Verified all configured head-tag targets and
+  compared the six emitted banner images byte for byte with the source assets.
+  The 3.49 MB initial browser bundle still exceeds the existing 3 MB warning
+  budget. Sass deprecation and unused stock theme warnings remain.
+- The focused Karma/Chromium run passed **20/20** tests. Coverage includes the
+  GUPEA header, link punctuation/query strings and escaping, opt-in metadata
+  rendering with repeated values and language, and both stock resolver specs.
+  Resolver specs use mocked services. Karma required local port access and
+  `--source-map=false` for the target test builder.
+- Bash syntax and release-tag checks passed. The build wrapper issued both
+  expected image builds from the repository root. A stub Docker command
+  verified that a failed build stops the combined build/push script before any
+  push. The Node 22 development image built with `npm ci` using a local
+  validation tag. A disposable network-disabled container verified the cached
+  manifest hashes, dependency symlink and Angular package resolution.
+  The default development command compiled and served the GUPEA stylesheet.
+  The cold compile exceeded the first smoke-test timeout and passed on retry
+  with a longer startup window. A shell test with a stub npm command verified cache hits, lockfile changes,
+  failed-install invalidation and retry. Dependency installation reported 95
+  audit findings on the inherited lockfile. The production image also built
+  with the stock 4 GB Node heap limit and rendered both languages against the
+  local 10.1 REST API. The production image was built before the last Swedish
+  wording corrections. The later browser/SSR build validated those final
+  catalogs from a stable source snapshot.
+- The configured public REST endpoint reported `DSpace 11.0-SNAPSHOT`. For
+  version-matched smoke tests, a temporary loopback-only Compose stack used
+  the stock 10.1 test backend and stock 10.1 distribution frontend. The local
+  backend reported `DSpace 10.1` and returned valid HAL, and the stock frontend
+  rendered its home page with SSR state. The migrated SSR build also returned the
+  GUPEA home page with logo, banner, stylesheet, accessibility link and both
+  language variants. Swedish verification initially exposed a hash mismatch
+  because the catalog was edited during the first build. The final rebuild
+  emitted matching browser and server catalogs, and the Swedish SSR check
+  passed. Test endpoint overrides were process-local. Institutional data, login
+  and workflows still require GUPEA integration testing.
+  [Backend release images](https://hub.docker.com/r/dspace/dspace/tags)
+  [Frontend release images](https://hub.docker.com/r/dspace/dspace-angular/tags)
+- Chromium verified desktop navigation, mobile menu expansion, both directions
+  of language switching, and access to the 21st sample community on page 2.
+  Chromium selected the desktop and mobile WebP banner sources and activated
+  the focused mobile menu button with Space. A 175 × 180 px community
+  logo retained its intrinsic width, and a browser image error rendered
+  the stock proportional SVG fallback. Cross-device visual and screen-reader
+  review remain open.
+  These checks used the isolated stock 10.1 backend with generated test data.
+  Chromium also signed in with a local test administrator, opened the stock
+  workspace form, refreshed it, left and returned, and opened and refreshed
+  the stock workflow form after a successful fixture deposit. This supports
+  retaining the stock resolvers. GUPEA submission forms, users and workflow
+  policies still need institutional testing.
+- SSR against an archived fixture verified all six simple-page fields, both
+  article URLs, repeated-value separators, escaped markup, linkification
+  limited to constituent articles, no missing-thumbnail placeholder, and full
+  metadata row headers. The fixture uses test definitions of the three
+  `dc.gup.*` fields. Chromium found the item in list and grid views, verified
+  their item-link targets, and confirmed the grid card has no thumbnail element. The home page showed the five newest of six
+  archived fixtures in descending accession order.
+
 ## Phase 2: header and navigation — 18 November 2026
 
 Selected group: the header, header/navbar wrapper and public navbar identified
@@ -84,12 +183,6 @@ search, language switching, login/impersonation and SSR initial rendering agains
 an institutionally configured 10.1 backend. The configured REST endpoint remains
 `https://sandbox.dspace.org/server`; unit tests do not contact it. No authenticated
 backend interaction or live-site testing was performed in this phase.
-
-Next group: migrate GUPEA home-news (institutional title, introduction, responsive
-banner and only the translation keys it needs). Review homepage community-list
-presentation alongside its pagination decision; keep later footer, metadata,
-authentication and deployment work separate. Stop after this header/navigation
-group until another migration request authorizes further work.
 
 ## Phase 1: theme infrastructure — 17 November 2026
 
@@ -414,41 +507,41 @@ Runtime and visual acceptance checks remain outstanding. Phase 1 validation evid
 
 ## Migration task checklist
 
-Completed phase 1 infrastructure tasks are checked below; component and runtime acceptance tasks remain unchecked. For reassessment tasks, completion means recording a decision and its supporting evidence, including when a customization is deliberately omitted.
+Implementation and reassessment decisions are checked below. Runtime acceptance remains unchecked until verified. For reassessment tasks, completion means recording a decision and its supporting evidence, including when a customization is deliberately omitted.
 
 ### Baseline and target environment
 
 - [x] Create an isolated migration branch or checkout based on the exact `dspace-10.1` release.
-- [ ] Confirm the 88-file customization delta against `f9c2f3c86` and account for any changes made since this analysis.
-- [ ] Compare affected APIs and templates with the exact 10.1 tag; resolve assumptions based on the local upstream 10.x branch.
-- [ ] Establish a matching DSpace 10.1 backend in a test environment.
+- [x] Confirm the 88-file customization delta against `f9c2f3c86` and account for any changes made since this analysis.
+- [x] Compare affected APIs and templates with the exact 10.1 tag; resolve assumptions based on the local upstream 10.x branch.
+- [x] Establish a matching stock DSpace 10.1 backend in a local test environment.
 - [ ] Inventory production environment variables, Compose overrides and configuration supplied outside this repository.
-- [ ] Establish supported Node and npm versions and install target dependencies using the target lockfile workflow.
-- [ ] Verify an uncustomized 10.1 frontend build and basic backend connectivity.
+- [x] Establish supported Node and npm versions and install target dependencies using the target lockfile workflow.
+- [x] Smoke-test the stock 10.1 distribution frontend against the matching stock backend.
 
 ### Theme registration and framework migration
 
 - [x] Create GUPEA theme scaffolding from the target release.
-- [ ] Replace `eager-theme.module.ts` with target-style eager component registration for all six GUPEA overrides.
+- [x] Replace `eager-theme.module.ts` with target-style eager component registration for retained overrides.
 - [x] Replace or omit `lazy-theme.module.ts` and configure target listable-component registration as required.
 - [x] Register GUPEA in the target global theme component lists; retain the DSpace parent registrations required during phased migration.
 - [x] Register `gupea-theme` in `angular.json` and activate GUPEA in runtime configuration.
-- [ ] Convert custom templates to target Angular control-flow syntax.
-- [ ] Update component imports and inherited APIs to match 10.1.
-- [ ] Migrate Bootstrap 4 utility classes and Sass variables to Bootstrap 5 equivalents.
+- [x] Convert custom templates to target Angular control-flow syntax.
+- [x] Update component imports and inherited APIs to match 10.1.
+- [x] Migrate Bootstrap 4 utility classes and Sass variables to Bootstrap 5 equivalents.
 
 ### Theme components and styling
 
 - [x] Port the GUPEA header logo, navigation layout, search and account controls using the 10.1 header.
 - [x] Reassess the header/navbar wrapper: inherit 10.1; the 8.x GUPEA copy has no local changes.
 - [x] Reassess navbar sections and the mobile user menu: inherit 10.1; no local 8.x changes to port.
-- [ ] Decide intended footer link visibility and correct the misspelled property names.
-- [ ] Port the footer while retaining required target footer behavior and COAR Notify support.
-- [ ] Port homepage title, introduction, banner markup and responsive styles.
-- [ ] Port community-list presentation and verify target collection inputs.
-- [ ] Decide how communities beyond the first 20 remain discoverable when pagination is hidden.
+- [x] Decide intended footer link visibility and correct the misspelled property names.
+- [x] Port the footer while retaining required target footer behavior and COAR Notify support.
+- [x] Port homepage title, introduction, banner markup and responsive styles.
+- [x] Review community-list presentation and retain the target collection inputs.
+- [x] Decide how communities beyond the first 20 remain discoverable when pagination is hidden.
 - [x] Port institutional colors, typography, link, table and breadcrumb styles.
-- [ ] Review the 95% modal-width override against target dialogs.
+- [x] Restore the 95% medium modal width in the GUPEA Bootstrap 5 theme.
 - [x] Port supported header, banner, navbar and image CSS variables.
 - [x] Update search facet/settings styling and badge selectors.
 - [x] Review global-style imports to avoid duplicating target styles.
@@ -458,66 +551,79 @@ Completed phase 1 infrastructure tasks are checked below; component and runtime 
 
 - [ ] Verify backend registry definitions and content for all six added metadata fields.
 - [ ] Verify related backend submission forms and import mappings for `dc.gup.*` metadata.
-- [ ] Add ISBN to the GUPEA simple item view.
-- [ ] Add series information to the GUPEA simple item view.
-- [ ] Add constituent articles (`dc.relation.haspart`) with the intended separators.
-- [ ] Add department to the GUPEA simple item view.
-- [ ] Add defence location to the GUPEA simple item view.
-- [ ] Add opponent to the GUPEA simple item view.
-- [ ] Review and adapt `LinkifyPipe`, including URL parsing, escaping and sanitizer use.
-- [ ] Integrate linkification into the target metadata-values renderer.
-- [ ] Enable linkification for the intended simple-page field only.
-- [ ] Integrate `dc.relation.haspart` linkification into the full metadata page.
-- [ ] Review and port shortened screen-reader metadata labels where appropriate.
-- [ ] Decide whether the companion pipe import under `src/themes/custom` is needed.
-- [ ] Verify missing, repeated and multiline metadata values.
-- [ ] Verify URL punctuation, query strings, HTML escaping and hostile input handling.
+- [x] Add ISBN to the GUPEA simple item view.
+- [x] Add series information to the GUPEA simple item view.
+- [x] Add constituent articles (`dc.relation.haspart`) with the intended separators.
+- [x] Add department to the GUPEA simple item view.
+- [x] Add defence location to the GUPEA simple item view.
+- [x] Add opponent to the GUPEA simple item view.
+- [x] Review and adapt `LinkifyPipe`, including URL parsing, escaping and sanitizer use.
+- [x] Integrate linkification into the target metadata-values renderer.
+- [x] Enable linkification for the intended simple-page field only.
+- [x] Integrate `dc.relation.haspart` linkification into the full metadata page.
+- [x] Restore the final metadata-key segment as the accessible row-header label while retaining the complete visible key.
+- [x] Decide whether the companion pipe import under `src/themes/custom` is needed.
+- [x] Verify missing, repeated and multiline metadata values in unit tests.
+- [x] Verify URL punctuation, query strings, HTML escaping and hostile input handling.
 - [ ] Verify full metadata-page screen-reader labels remain understandable and distinct.
 
 ### Logos, thumbnails and search results
 
-- [ ] Implement community/collection logo sizing through target theme or CSS extension points.
+The 8.x search-grid change (`d66b91367`) removed both thumbnail branches from
+the generic item card used for items and publications. Direct item grids also
+use that card. The shared thumbnail change (`134829170`) removed the HTML
+placeholder for missing images across all callers. Specialized entity cards
+and community/collection cards used their own templates in 8.x and still
+display available images. In 10.1, the GUPEA grid overrides are registered in
+`src/themes/gupea/lazy-listable-components.ts`, and the shared thumbnail
+wrapper resolves the GUPEA template through its theme lookup.
+The committed target at `ea316ad91` still uses both stock templates. The
+GUPEA overrides and their registration are present in the working tree.
+Five Chromium regression tests passed, covering registration, linked search
+results, unlinked direct items, missing placeholders and available images.
+
+- [x] Implement community/collection logo sizing through target theme or CSS extension points.
 - [x] Move the 250px logo-width setting into GUPEA overrides if supported.
-- [ ] Verify small logos, aspect ratios and failed-image fallback behavior.
-- [ ] Check for target configuration to suppress missing-thumbnail placeholders; otherwise port a theme override.
-- [ ] Port thumbnail removal from item grid cards.
-- [ ] Decide intended badge visibility and replace the global `showLabel` default change with explicit inputs where possible.
-- [ ] Verify list/grid navigation, accessibility, status badges and access badges.
+- [x] Verify intrinsic logo sizing on 10.1 and restore the GUPEA 8.x failed-image SVG.
+- [x] Check for target configuration to suppress missing-thumbnail placeholders; otherwise port a theme override.
+- [x] Port thumbnail removal from item grid cards.
+- [x] Decide intended badge visibility and replace the global `showLabel` default change with explicit inputs where possible.
+- [x] Verify stock list/grid item-link targets and grid thumbnail suppression.
+- [ ] Verify list/grid accessibility and status and access badges against institutional records.
 
 ### Configuration
 
 - [x] Port and validate favicon and manifest `headTags`.
 - [x] Set recent-submission page size to five.
-- [ ] Verify accession-date sorting against backend search configuration.
+- [x] Verify the five-item limit and accession-date sorting on stock 10.1. Confirm GUPEA search configuration at deployment.
 - [x] Port the community-list page size after resolving the pagination decision.
 - [x] Disable homepage discovery filters using supported target configuration.
-- [ ] Enable English and Swedish and verify language switching.
+- [x] Verify browser language switching in addition to enabled English and Swedish SSR.
 - [ ] Configure the intended test/production REST endpoints using the deployment configuration inventory.
 
 ### Translations and translation tooling
 
-- [ ] Extract and merge English customization deltas into target translations.
-- [ ] Review Swedish changes against target upstream translations and merge retained wording.
-- [ ] Port GUPEA branding and institutional OIDC sign-in wording.
-- [ ] Port homepage translation keys and copy.
-- [ ] Port all six added metadata-label keys.
-- [ ] Resolve renamed/removed keys and verify interpolation parameters.
-- [ ] Decide whether to retain the `gub_i18n` source snapshots and Python workflow.
-- [ ] If retained, adapt and verify comment-dependent translation matching and `.updated` output handling.
-- [ ] Review `replacements` and `skip_words` for inappropriate broad substitutions.
-- [ ] Verify retained Python/asdf setup, `json5` dependency and shell wrappers.
+- [x] Extract and merge English customization deltas into target translations.
+- [x] Review Swedish changes against target upstream translations and merge retained wording.
+- [x] Port GUPEA branding and institutional OIDC sign-in wording.
+- [x] Port homepage translation keys and copy.
+- [x] Port all six added metadata-label keys.
+- [x] Resolve renamed/removed keys and verify interpolation parameters.
+- [x] Restore the `gub_i18n` source snapshots, local branding rules and Python workflow. Generate reviewable candidates without overwriting the runtime catalogs.
+  Ran the updater against copies of both 10.1 catalogs and verified that it
+  preserves existing translations, comments and interpolation parameters.
 
 ### Authentication, analytics and submission behavior
 
 - [ ] Confirm intended password-authentication policy and administrative access requirements.
-- [ ] Check target frontend/backend configuration before retaining a UI password-method filter.
+- [x] Check target frontend/backend configuration before retaining a UI password-method filter.
 - [ ] Implement any remaining login customization using the current authentication API.
 - [ ] Verify institutional login, logout and administrative access.
 - [ ] Integrate Siteimprove with the target browser startup and existing consent behavior.
 - [ ] Verify production-only analytics loading, SPA navigation tracking and duplicate prevention.
-- [ ] Test stock 10.1 workspace-item resolution before porting the workaround.
-- [ ] Test stock 10.1 workflow-item resolution before porting the workaround.
-- [ ] If loading failures persist, investigate current request/cache semantics and implement a justified fix.
+- [x] Test stock 10.1 workspace-item resolution before porting the workaround.
+- [x] Test stock 10.1 workflow-item resolution before porting the workaround.
+- [x] Keep stock caching after workspace and workflow smoke tests passed. Revisit if the GUPEA backend reproduces the loading problem.
 - [ ] Verify new/resumed submissions, workflow transitions, refreshes and repeat visits without endless loading or stale data.
 
 ### Assets
@@ -526,31 +632,36 @@ Completed phase 1 infrastructure tasks are checked below; component and runtime 
 - [x] Copy all six responsive JPG/WebP banner assets.
 - [x] Copy favicon, touch-icon and Android icon assets.
 - [x] Copy and validate the Gupea web manifest and its relative icon URLs.
-- [x] Decide whether to retain the favicon generator and locate or replace its missing `logo.png` source.
-- [ ] Verify deployed asset URLs and banner cropping at mobile and desktop breakpoints.
+- [x] Restore the favicon generator with the tracked GUPEA SVG as the default source when `logo.png` is absent.
+  Verified artwork and transparency in all four ICO sizes and the three PNG
+  outputs. Generated test files outside the theme.
+- [x] Verify locally served theme assets and desktop/mobile banner source selection.
+- [ ] Review deployed asset URLs and visual banner cropping on GUPEA.
 
 ### Docker and release tooling
 
-- [ ] Adapt the production Dockerfile from the 10.1 version using a supported Node runtime.
-- [ ] Adapt dependency installation to the target package-manager/lockfile workflow.
-- [ ] Measure build-memory requirements and retain the heap override only as needed.
-- [ ] Preserve JSON-form container commands where still applicable.
-- [ ] Adapt the multistage development image and dependency cache.
-- [ ] Verify external entrypoint activation and update `docker-entrypoint.dev.sh` if retained.
-- [ ] Verify cache invalidation, mounted volumes and module-link behavior.
-- [ ] Update build/push scripts and replace `dspace-8_x` image naming.
-- [ ] Assign a migration release identifier in `docker/build/.env`.
-- [ ] Correct the `gup_i18n`/`gub_i18n` Docker exclusion mismatch if that exclusion is intended.
-- [ ] Decide the disposition of `Dockerfile.dist.memoryfix`; do not use its malformed line unchanged.
-- [ ] Decide the disposition of `tmp.patch`; do not reapply already-ported changes.
-- [ ] Build and run development and production images in the test environment.
+- [x] Adapt the production Dockerfile from the 10.1 version using a supported Node runtime.
+- [x] Adapt dependency installation to the target package-manager/lockfile workflow.
+- [x] Verify whether the stock production container heap limit is sufficient.
+- [x] Preserve JSON-form container commands where still applicable.
+- [x] Adapt the multistage development image and dependency cache.
+- [x] Activate the development cache entrypoint in the image and test dependency linking and invalidation.
+- [ ] Verify institutional Compose entrypoint overrides and mounted volumes.
+- [x] Update build/push scripts and replace `dspace-8_x` image naming.
+- [x] Assign a migration release identifier in `docker/build/.env`.
+- [x] Correct the `gup_i18n`/`gub_i18n` Docker exclusion mismatch if that exclusion is intended.
+- [x] Decide the disposition of `Dockerfile.dist.memoryfix`; do not use its malformed line unchanged.
+- [x] Decide the disposition of `tmp.patch`; do not reapply already-ported changes.
+- [x] Build and run both images. Verify development dependency startup and theme serving, and production SSR in the test environment.
 
 ### Final verification and acceptance
 
-- [x] Run the target production build and relevant lint/type checks (phases 1 and 2; rerun after subsequent code migrations).
-- [ ] Verify SSR/initial rendering and theme loading without unexpected flicker.
-- [ ] Verify keyboard navigation, mobile navigation, language switching and footer visibility.
+- [x] Run the target production build and relevant lint/type checks (see phase validation evidence).
+- [x] Verify 10.1 SSR initial markup, both languages and theme stylesheet serving.
+- [ ] Review initial-render flicker in the deployed environment.
+- [x] Verify local mobile menu, focused keyboard activation, language switching and configured footer links.
+- [ ] Review full keyboard navigation and accessibility on the deployed site.
 - [ ] Complete the metadata, search, authentication, submission and deployment checks above.
-- [ ] Record which reassessed customizations were retained, replaced or omitted and why.
-- [ ] Review the final diff to ensure upstream fixes were retained and only intended customizations were added.
-- [ ] Record test evidence and outstanding limitations before production rollout.
+- [x] Record which reassessed customizations were retained, replaced or omitted and why.
+- [x] Review the final diff to ensure upstream fixes were retained and only intended customizations were added.
+- [x] Record test evidence and outstanding limitations before production rollout.
