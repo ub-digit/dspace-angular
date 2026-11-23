@@ -52,9 +52,6 @@ export class ItemPageFieldComponent {
      */
     enableMarkdown = false;
 
-    /** Whether to render embedded HTTP(S) URLs in plain text as links. */
-    @Input() enableLinkify = false;
-
     /**
      * Fields (schema.element.qualifier) used to render their values.
      */
