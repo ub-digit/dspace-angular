@@ -11,11 +11,12 @@ for components, not styles: `styles/theme.scss` therefore includes the full
 10.1 Sass pipeline and one import of the core global styles. No DSpace CSS
 bundle is needed for this configuration.
 
-The eager list registers the header and home-news overrides. The listable
+The eager list registers the header, homepage and sign-in overrides. The listable
 registry supplies the simple item page and item grid cards. The full metadata
-and thumbnail components load through their themed wrappers. The footer uses
-the standard 10.1 component with the link visibility set in `config/config.yml`.
-The homepage community list keeps its paginator and RSS behavior.
+and thumbnail components load through their themed wrappers. 
+The homepage displays 20 communities per page without a numbered pager or
+result count. Previous and Next appear when there are multiple pages.
+The sign-in override hides password sign-in.
 
 Assets are copied automatically by the existing webpack theme asset rule to
 `assets/gupea/`. The header uses the institutional SVG logo, and the home-news
