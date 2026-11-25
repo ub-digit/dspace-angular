@@ -17,10 +17,8 @@ COPY package.json package-lock.json ./
 # NOTE: "ci" = clean install from package files
 RUN npm ci
 
-# Around 4GB of memory is required to build the app for production.
-# This default setting can be overridden as needed in your shell, via an env file or in docker-compose.
-# See Docker environment var precedence: https://docs.docker.com/compose/environment-variables/envvars-precedence/
-ENV NODE_OPTIONS="--max_old_space_size=4096"
+# Use the GUPEA production build heap limit.
+ENV NODE_OPTIONS="--max-old-space-size=8192"
 
 COPY . /app/
 RUN npm run build:prod
