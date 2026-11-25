@@ -3035,6 +3035,10 @@
   // TODO New key - Add a translation
   "cookies.consent.app.description.matomo": "Allows us to track statistical data",
 
+  "cookies.consent.app.title.siteimprove": "Siteimprove",
+
+  "cookies.consent.app.description.siteimprove": "Hjälper oss att förstå hur besökare använder GUPEA.",
+
   // "cookies.consent.purpose.functional": "Functional",
   "cookies.consent.purpose.functional": "Funktionella",
 

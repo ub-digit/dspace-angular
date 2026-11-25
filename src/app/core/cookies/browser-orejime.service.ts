@@ -1,7 +1,9 @@
 import {
   Inject,
+  inject,
   Injectable,
   InjectionToken,
+  Injector,
 } from '@angular/core';
 import {
   APP_CONFIG,
@@ -45,6 +47,7 @@ import {
   getOrejimeConfiguration,
   MATOMO_OREJIME_KEY,
 } from './orejime-configuration';
+import { SiteimproveService } from './siteimprove.service';
 
 /**
  * Metadata field to store a user's cookie consent preferences in
@@ -102,6 +105,7 @@ export class BrowserOrejimeService extends OrejimeService {
   orejimeConfig = cloneDeep(getOrejimeConfiguration(this._window));
 
   private orejimeInstance: any;
+  private readonly injector = inject(Injector);
 
   constructor(
     @Inject(NativeWindowService) private _window: NativeWindowRef,
@@ -114,6 +118,15 @@ export class BrowserOrejimeService extends OrejimeService {
     @Inject(APP_CONFIG) private appConfig: AppConfig,
   ) {
     super();
+    if (appConfig.production) {
+      this.orejimeConfig.apps.push({
+        name: 'siteimprove',
+        purposes: ['statistical'],
+        required: false,
+        cookies: ['nmstat'],
+        callback: (consent: boolean) => this.injector.get(SiteimproveService).setConsent(consent),
+      });
+    }
   }
 
   /**
