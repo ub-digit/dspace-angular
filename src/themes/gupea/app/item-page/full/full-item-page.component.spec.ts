@@ -63,7 +63,10 @@ describe('GUPEA full item metadata', () => {
     const hasPartHeader = host.querySelector('th[aria-label="haspart"]');
     expect(hasPartHeader?.getAttribute('scope')).toBe('row');
     expect(hasPartHeader?.querySelector('[aria-hidden="true"]')?.textContent).toBe('dc.relation.haspart');
-    expect(hasPartHeader?.closest('tr')?.querySelector('a')?.getAttribute('href')).toBe(url);
+    const hasPartLink = hasPartHeader?.closest('tr')?.querySelector('a');
+    expect(hasPartLink?.getAttribute('href')).toBe(url);
+    expect(hasPartLink?.target).toBe('_blank');
+    expect(hasPartLink?.rel).toBe('noopener noreferrer');
     const descriptionRow = host.querySelector('th[aria-label="description"]')?.closest('tr');
     expect(descriptionRow?.querySelector('td')?.textContent).toBe(value);
     expect(descriptionRow?.querySelector('a')).toBeNull();

@@ -42,7 +42,7 @@ export class LinkifyPipe implements PipeTransform {
       }
 
       result += escape(text.slice(offset, index));
-      result += `<a href="${escape(href)}">${escape(url)}</a>`;
+      result += `<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(url)}</a>`;
       offset = index + url.length;
     }
 
